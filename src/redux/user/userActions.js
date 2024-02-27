@@ -112,3 +112,29 @@ export const clearError = ()=>{
         type:CONSTANTS.CLEAR_ERROR
     }
 }
+
+export const updateUser = ()=>{
+    return (dispatch)=>{
+        axios.get("http://localhost:5000/profile",{withCredentials:true})
+        .then(response=>{
+            if(response.data){
+                dispatch(loginUserSuccess(response.data));
+            }else{
+                dispatch(loginUserFailure(response.data))
+            }
+        })
+    }
+}
+
+export const updateOwner = (owner)=>{
+    return{
+        type:CONSTANTS.UPDATE_OWNER,
+        payload:owner
+    }
+}
+
+export const resetOwner = ()=>{
+    return{
+        type:CONSTANTS.RESET_OWNER,
+    }
+}

@@ -4,6 +4,7 @@ const initialState = {
     loading:false,
     user:undefined,
     error:null,
+    owner:undefined
 }
 
 const userReducer = (state=initialState, action)=>{
@@ -13,11 +14,13 @@ const userReducer = (state=initialState, action)=>{
             loading:true,
         }
         case CONSTANTS.LOGIN_USER_SUCCESS: return{
+            ...state,
             loading:false,
             user:action.payload,
             error:null
         }
         case CONSTANTS.LOGIN_USER_FAILURE: return{
+            ...state,
             loading:false,
             user:undefined,
             error:action.payload
@@ -27,6 +30,7 @@ const userReducer = (state=initialState, action)=>{
             loading:true,
         }
         case CONSTANTS.LOGOUT_USER_SUCCESS: return{
+            ...state,
             loading:false,
             user:undefined,
             error:null
@@ -54,6 +58,14 @@ const userReducer = (state=initialState, action)=>{
         case CONSTANTS.CLEAR_ERROR: return{
             ...state,
             error:null
+        }
+        case CONSTANTS.UPDATE_OWNER: return{
+            ...state,
+            owner:action.payload
+        }
+        case CONSTANTS.RESET_OWNER: return{
+            ...state,
+            owner:undefined
         }
         default: return state
     }
