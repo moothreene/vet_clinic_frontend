@@ -3,7 +3,7 @@ import { Link, Navigate } from 'react-router-dom'
 import { useSelector,useDispatch } from 'react-redux'
 import { logoutUser } from '../redux'
 import { useState } from 'react'
-import { clearError } from '../redux'
+import { clearError,updateUser } from '../redux'
 
 function Navbar() {
   const dispatch = useDispatch();
@@ -12,6 +12,7 @@ function Navbar() {
 
   useEffect(()=>{
     dispatch(clearError());
+    dispatch(updateUser());
   },[])
 
   useEffect(()=>{
