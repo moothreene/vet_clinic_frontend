@@ -1,15 +1,17 @@
 import React from 'react'
 
-function Pet() {
+function Pet({name,sex,weight,birthday,species,breed}) {
+  const getAge = birthDate => Math.floor((new Date() - new Date(birthDate).getTime()) / 3.15576e+10);
+  console.log(typeof(birthday))
   return (
     <>
-        <h3>Murzik</h3>
-        <h4>Cat</h4>
-        <h4>Male</h4>
         <br />
-        <div>Siamese</div>
-        <div>14 y.o.</div>
-        <div>6kg</div>
+        <div>{name}</div>
+        <div>{species}</div>
+        <div>{sex}</div>
+        <div>{breed}</div>
+        <div>{getAge(birthday)} y.o.</div>
+        <div>{weight/1000} kg</div>
     </>
   )
 }
