@@ -1,12 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
-function Pet({name,sex,weight,birthday,species,breed}) {
+function Pet({_id,name,sex,weight,birthday,species,breed}) {
   const getAge = birthDate => Math.floor((new Date() - new Date(birthDate).getTime()) / 3.15576e+10);
-  console.log(typeof(birthday))
   return (
     <>
         <br />
-        <div>{name}</div>
+        <Link to={_id}>{name}</Link>
         <div>{species}</div>
         <div>{sex}</div>
         <div>{breed}</div>

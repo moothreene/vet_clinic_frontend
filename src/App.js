@@ -11,6 +11,8 @@ import Layout from './components/Layout';
 import UserPage from './pages/UserPage';
 import AddPet from './pages/AddPet';
 import Nopage from './pages/Nopage';
+import PetPage from './pages/PetPage';
+import AddManipulation from './pages/AddManipulation';
 
 
 function App() {
@@ -26,6 +28,8 @@ function App() {
               <Route path="/users" element={<Browse />} />
               <Route path="/users/:id" element={<UserPage />} />
               <Route path="/users/:id/addpet" element={<AddPet />} />
+              <Route path="/users/:id/:petId" element={<PetPage />} />
+              <Route path="/users/:id/:petId/add" element={<AddManipulation />} />
               <Route path="*" element={<Nopage />} />
             </Route>
           </Routes>
