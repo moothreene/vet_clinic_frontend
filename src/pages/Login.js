@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react';
-import { loginUser } from '../redux';
+import { clearError, loginUser } from '../redux';
 import { useSelector, useDispatch } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
@@ -13,6 +13,10 @@ function Login() {
         event.preventDefault();
         dispatch(loginUser(email,password))
     }
+
+    useEffect(()=>{
+        dispatch(clearError())
+    },[])
     
     return (
         userData.user?(<Navigate to={"/"}/>):(
