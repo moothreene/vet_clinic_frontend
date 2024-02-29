@@ -23,7 +23,6 @@ function App() {
               <Route index element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
-              <Route path="/browse" element={<Browse />} />
               <Route path="/users" element={<Browse />} />
               <Route path="/users/:id" element={<UserPage />} />
               <Route path="/users/:id/addpet" element={<AddPet />} />
