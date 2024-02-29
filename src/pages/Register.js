@@ -17,7 +17,7 @@ function Register() {
         setRedirect(true);
         
     }
-    if (userData.loading === false && userData.error===null && redirect===true){return <Navigate to={"/"} />}
+    if (!userData.user || (userData.loading === false && userData.error===null && redirect===true)){return <Navigate to={"/"} />}
     return (
         <>
         <form className='register' onSubmit={HandleSubmit}>

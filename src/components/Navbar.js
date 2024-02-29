@@ -16,20 +16,12 @@ function Navbar() {
   },[])
 
   useEffect(()=>{
-    if(redirect && userData.loading === false && userData.user===undefined && userData.error ===null){
-      setRedirect(false);
-    }
+    setRedirect(false);
   })
 
   function logout(){
     setRedirect(true);
-    dispatch(logoutUser())
-  }
-
-  if(redirect && userData.loading === false && userData.user===undefined && userData.error ===null){
-    return(
-    <Navigate to={"/"}></Navigate>
-    )
+    dispatch(logoutUser());
   }
 
   return (
@@ -40,7 +32,7 @@ function Navbar() {
       ):
         (<>
           <h2>{userData.user.email}</h2>
-          <Link to="/browse">Browse</Link>
+          <Link to="/users">Browse</Link>
           <div onClick={logout}>Logout</div>
           {userData.user.isAdmin && <Link to="/register">Register</Link>}
         </>)          

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import axios from 'axios';
 import User from '../components/User';
+import { Navigate } from 'react-router-dom';
 
 function Browse() {
   const[users,setUsers] = useState([]);
@@ -14,7 +15,7 @@ function Browse() {
       })
     }
   },[])
-  if(userData.user)
+  if (!userData.user) return <Navigate to="/" />
   return (
     <div>
       {

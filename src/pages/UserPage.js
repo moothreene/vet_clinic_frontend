@@ -12,14 +12,14 @@ function UserPage() {
 
     useEffect(()=>{
         dispatch(resetOwner())
-        axios.get(`http://localhost:5000/users/${id}`,{withCredentials:true}).then(
+        if(usersData.user){
+            axios.get(`http://localhost:5000/users/${id}`,{withCredentials:true}).then(
             response=>{
-                console.log(response);
                 setPetData(response.data.petData)
                 dispatch(updateOwner(response.data?.userData))
-                console.log(response.data.userData)
             }
         )
+        }
     },[])
 
     if(usersData.user?.id===id || usersData.user?.isAdmin)
