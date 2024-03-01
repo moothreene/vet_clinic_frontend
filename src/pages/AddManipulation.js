@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Editor from '../components/Editor'
-import { Navigate, useParams } from 'react-router-dom'
+import { Navigate, useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios';
 
 function AddManipulation() {
@@ -12,13 +12,18 @@ function AddManipulation() {
     const [desc, setDesc] = useState("");
     const [recommendation,setRecommendation] = useState("");
     const [redirect,setRedirect] = useState(false);
+    const navigate = useNavigate();
 
     async function HandleSubmit(event){
         event.preventDefault();
         const data = {date,petId, weight, temp, purpose, desc, recommendation}
-        axios.post("http://localhost:5000/addManipulation",data,{withCredentials:true})
+        axios.post("http://localhost:5000/addManipulation",data,{withCredentials:true}).then(
+            response=>{
+                setRedirect(true);
+            }
+        )
     }
-
+    if(redirect) return navigate(-1)
     return (
         <div className='manipulation'>
             <form className="manipulationForm" onSubmit={HandleSubmit}>

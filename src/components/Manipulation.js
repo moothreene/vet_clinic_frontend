@@ -1,14 +1,13 @@
 import React from 'react'
 
-function Manipulation({date,petId, weight, temp, purpose, desc, recommendation}) {
+function Manipulation({date,doctor, purpose}) {
   return (
     <div>
+      <hr></hr>
         <div className='date'>{date}</div>
-        <div className='weight'>{weight}</div>
-        <div className='temp'>{temp}</div>
+        <div className='doctor'>{doctor.email}</div>
         <div className='purpose'>{purpose}</div>
-        <div className="desc" dangerouslySetInnerHTML={{__html:desc}}/>
-        <div className="recommendation" dangerouslySetInnerHTML={{__html:recommendation}}/>
+        <hr></hr>
     </div>
   )
 }
