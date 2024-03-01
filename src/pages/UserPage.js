@@ -22,10 +22,10 @@ function UserPage() {
         }
     },[])
 
-    if(usersData.user?.id===id || usersData.user?.isAdmin)
+    if(usersData.user?.id===id || usersData.user?.isDoctor)
     return (
         <>
-            {usersData.user?.isAdmin && <Link to={"addpet"} >AddPet</Link>}
+            {usersData.user?.isDoctor && <Link to={"addpet"} >AddPet</Link>}
             <br />
             {usersData?.owner && usersData.owner.email}
             <br />

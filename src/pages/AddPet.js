@@ -38,7 +38,7 @@ function AddPet() {
     return (
         <div>
           {userData.owner && <div>Add new pet for {userData?.owner.email}:</div>}
-            {userData.user?.isAdmin && (
+            {userData.user?.isDoctor && (
               <form className='addpet' onSubmit={HandleSubmit}>
                 <input
                   className='name'
