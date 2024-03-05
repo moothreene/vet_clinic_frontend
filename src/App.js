@@ -13,6 +13,9 @@ import AddPet from './pages/AddPet';
 import Nopage from './pages/Nopage';
 import PetPage from './pages/PetPage';
 import AddManipulation from './pages/AddManipulation';
+import ManipulationPage from './pages/ManipulationPage';
+import EditManipulation from './pages/EditManipulation';
+import UpdateUserInfo from './pages/UpdateUserInfo';
 
 
 function App() {
@@ -27,9 +30,12 @@ function App() {
               <Route path="/register" element={<Register />} />
               <Route path="/users" element={<Browse />} />
               <Route path="/users/:id" element={<UserPage />} />
+              <Route path="/users/:id/update" element={<UpdateUserInfo/>} />
               <Route path="/users/:id/addpet" element={<AddPet />} />
               <Route path="/users/:id/:petId" element={<PetPage />} />
               <Route path="/users/:id/:petId/add" element={<AddManipulation />} />
+              <Route path="/users/:id/:petId/:manipulationId" element={<ManipulationPage />} />
+              <Route path="/users/:id/:petId/:manipulationId/edit" element={<EditManipulation/>} />
               <Route path="*" element={<Nopage />} />
             </Route>
           </Routes>
