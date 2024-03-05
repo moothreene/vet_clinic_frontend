@@ -31,7 +31,7 @@ function Navbar() {
         </>
       ):
         (<>
-          <h2>{userData.user.email}</h2>
+          <h4>{userData.user.email}</h4>
           <Link to="/users">Browse</Link>
           <div onClick={logout}>Logout</div>
           {userData.user.isDoctor && <Link to="/register">Register</Link>}
