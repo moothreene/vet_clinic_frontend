@@ -5,7 +5,7 @@ import Manipulation from '../components/Manipulation';
 import { useSelector } from 'react-redux';
 
 function PetPage() {
-    const {petId} = useParams();
+    const {id, petId} = useParams();
     const [petData,setPetData] = useState([]);
     const [manipulations, setManipulations] = useState([]);
     const userData = useSelector(state=>state.user);
@@ -23,7 +23,7 @@ function PetPage() {
 
     const getAge = birthDate => Math.floor((new Date() - new Date(birthDate).getTime()) / 3.15576e+10);
 
-    if (!userData.user) return <Navigate to="/" />
+    if (!userData.user ||!(userData.user?.isDoctor || userData.user.id === id)) return <Navigate to="/" />
     return (
         <div>
             <h1>{petData.name}</h1>
