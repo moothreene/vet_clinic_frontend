@@ -39,8 +39,6 @@ function PetPage() {
             )}
             <br />
             {manipulations.map(manipulation=>{
-                const {date, doctor, purpose} = manipulation;
-                const data = {date, doctor, purpose}
                 const {_id, date, doctor, purpose} = manipulation;
                 const data = {_id, date, doctor, purpose}
                 return(
