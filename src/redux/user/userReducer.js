@@ -67,6 +67,21 @@ const userReducer = (state=initialState, action)=>{
             ...state,
             owner:undefined
         }
+        case CONSTANTS.UPDATE_USER_REQUEST: return{
+            ...state,
+            loading:true,
+            error:null
+        }
+        case CONSTANTS.UPDATE_USER_SUCCESS: return{
+            ...state,
+            loading:false,
+            error:null
+        }
+        case CONSTANTS.UPDATE_USER_FAILURE: return{
+            ...state,
+            loading:false,
+            error:action.payload
+        }
         default: return state
     }
 }

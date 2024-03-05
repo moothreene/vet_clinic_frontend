@@ -61,11 +61,30 @@ export const registerUserFailure = (error)=>{
     }
 }
 
-export const registerUser = (email, password)=>{
+export const updateUserRequest = ()=>{
+    return{
+        type:CONSTANTS.UPDATE_USER_REQUEST
+    }
+}
+
+export const updateUserSuccess = ()=>{
+    return{
+        type:CONSTANTS.UPDATE_USER_SUCCESS
+    }
+}
+
+export const updateUserFailure = (error)=>{
+    return{
+        type:CONSTANTS.UPDATE_USER_FAILURE,
+        payload:error
+    }
+}
+
+export const registerUser = (email,firstName,lastName,phoneNumber,password)=>{
     return (dispatch)=>{
         dispatch(registerUserRequest());
-        const data = {email,password}
-        axios.post("http://localhost:5000/register", data)
+        const data = {email,firstName,lastName,phoneNumber,password}
+        axios.post("http://localhost:5000/register", data, {withCredentials:true})
         .then(response=>{
             dispatch(registerUserSuccess());
         })
@@ -136,5 +155,20 @@ export const updateOwner = (owner)=>{
 export const resetOwner = ()=>{
     return{
         type:CONSTANTS.RESET_OWNER,
+    }
+}
+
+export const updateUserInfo = (id,email,firstName,lastName,phoneNumber)=>{
+    return (dispatch)=>{
+        dispatch(updateUserRequest());
+        const data = {email,firstName,lastName,phoneNumber}
+        axios.put(`http://localhost:5000/update/${id}`, data, {withCredentials:true})
+        .then(response=>{
+            dispatch(updateUserSuccess());
+        })
+        .catch(error=>{
+            const errorMsg = error.response.data;
+            dispatch(updateUserFailure(errorMsg));
+        })
     }
 }
