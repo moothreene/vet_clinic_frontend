@@ -25,10 +25,19 @@ function UserPage() {
     if(usersData.user?.id===id || usersData.user?.isDoctor)
     return (
         <>
-            {usersData.user?.isDoctor && <Link to={"addpet"} >AddPet</Link>}
+            {usersData.user?.isDoctor && (
+            <>
+                <Link to={"update"} >Update User Info</Link>
+                <Link to={"addpet"} >AddPet</Link>
+            </>)}
             <br />
-            {usersData?.owner && usersData.owner.email}
-            <br />
+            {usersData?.owner &&(
+                <>
+                <h2>{usersData.owner.firstName} {usersData.owner.lastName}</h2>
+                <div>{usersData.owner.email}</div>
+                <div>{usersData.owner.phoneNumber}</div>
+                </>
+            )}
             {petData.map(pet=>{
                 return(
                     <Pet {...pet} key={pet._id} />
