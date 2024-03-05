@@ -1,14 +1,17 @@
 import React from 'react'
-
-function Manipulation({date,doctor, purpose}) {
+import { Link } from 'react-router-dom'
+function Manipulation({_id,date,doctor, purpose}) {
   return (
-    <div>
-      <hr></hr>
+    <Link to={_id}>
+      <div>
+        <hr></hr>
         <div className='date'>{date}</div>
-        <div className='doctor'>{doctor.email}</div>
+        <div className='doctor'>Dr. {doctor.firstName} {doctor.lastName}</div>
         <div className='purpose'>{purpose}</div>
         <hr></hr>
-    </div>
+      </div>
+    </Link>
+    
   )
 }
 
