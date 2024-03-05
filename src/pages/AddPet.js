@@ -10,7 +10,7 @@ function AddPet() {
     const [name, setName] = useState("");
     const [species, setSpecies] = useState("");
     const [breed, setBreed] = useState("");
-    const [sex, setSex] = useState("male");
+    const [sex, setSex] = useState("Male");
     const [birthday, setBirthday] = useState("");
     const [weight, setWeight] = useState("");
     const userData = useSelector(state=>state.user);
@@ -74,8 +74,8 @@ function AddPet() {
                   required
                   value={sex}
                   onChange={(e)=>setSex(e.target.value)}>
-                  <option value="male">Male</option>
-                  <option value="female">Female</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
                 </select>
                 <br />
                 <input
