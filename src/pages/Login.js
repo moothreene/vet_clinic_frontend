@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { clearError, loginUser } from '../redux';
 import { useSelector, useDispatch } from 'react-redux';
 import { Navigate } from 'react-router-dom';
+import './Login.css'
 
 function Login() {
     const dispatch = useDispatch();
@@ -20,31 +21,24 @@ function Login() {
     
     return (
         userData.user?(<Navigate to={"/"}/>):(
-        <>
+        <div className='login'>
         <form className='login' onSubmit={HandleSubmit}>
-            <label>Email</label>
-            <br />
             <input  type="email"
                     required 
                     placeholder='Email' 
                     className='email'
                     value={email}
                     onChange={e=>(setEmail(e.target.value))}/>
-            <br />
-            <label>Password</label>
-            <br />
             <input  type="password" 
                     required 
                     placeholder='Password' 
                     className='password'
                     value={password}
                     onChange={e=>setPassword(e.target.value)} />
-            <button type="submit" className='login'>Login</button>
+            <button type="submit" className='login'>Log In</button>
+            <div className='login_error'>{userData.error}</div>
         </form>
-        {userData.error!==null &&(
-            <div>{userData.error}</div>
-        )}
-        </>
+        </div>
         )
     )
 }
