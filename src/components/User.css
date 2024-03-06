@@ -1,0 +1,8 @@
+.user_link a{
+    text-decoration: none;
+    color:black;
+}
+
+.user_link a:hover{
+    color:blue
+}
