@@ -26,7 +26,6 @@ function App() {
           <Routes>
             <Route path="/" element = {<Layout />}>
               <Route index element={<Home />} />
-              <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/users" element={<Browse />} />
               <Route path="/users/:id" element={<UserPage />} />
@@ -38,6 +37,7 @@ function App() {
               <Route path="/users/:id/:petId/:manipulationId/edit" element={<EditManipulation/>} />
               <Route path="*" element={<Nopage />} />
             </Route>
+            <Route path="/login" element={<Login />} />
           </Routes>
         </Router>
       </PersistGate>
