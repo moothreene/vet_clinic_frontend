@@ -4,6 +4,7 @@ import { useSelector,useDispatch } from 'react-redux'
 import { logoutUser } from '../redux'
 import { useState } from 'react'
 import { clearError,updateUser } from '../redux'
+import './Navbar.css';
 
 function Navbar() {
   const dispatch = useDispatch();
@@ -25,17 +26,26 @@ function Navbar() {
   }
 
   return (
-      (!userData.user)?(
-        <>
-        <Link to="/login">Login</Link>
-        </>
+    <ul className='navbar'>
+      {(!userData.user)?(
+        <li>
+        <Link className="link login" to="/login">Login</Link>
+        </li>
       ):
         (<>
-          <h4>{userData.user.email}</h4>
-          <Link to="/users">Browse</Link>
-          <div onClick={logout}>Logout</div>
-          {userData.user.isDoctor && <Link to="/register">Register</Link>}
-        </>)          
+          {userData.user.isDoctor &&
+            <li className="register">
+              <Link className="link register" to="/register">Register</Link>
+            </li>
+          }
+          <li>
+            <Link className="link users" to="/users">{userData.user.email}</Link>
+          </li>
+          <li>
+            <div className="link logout" onClick={logout}>Logout</div>
+          </li>
+        </>)}       
+    </ul>
   )
       
 }
