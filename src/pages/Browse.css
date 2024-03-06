@@ -1,0 +1,29 @@
+.browse{
+    display: flex;
+    flex-direction: column;
+    height: 50vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+input.search{
+    box-sizing: border-box;
+    width: 30%;
+    font-size: 1.2em;
+    border: 3px solid rgb(60, 57, 255);
+    border-radius: none;
+    outline: none;
+    -webkit-transition: 0.1s ease-in-out;
+    transition: 0.1s ease-in-out;
+}
+
+input.search:focus{
+    border-radius: 7px;
+}
+
+.clients_container{
+    margin-top: 1em;
+    height: 5em;
+    font-size: 1.2em;
+}
