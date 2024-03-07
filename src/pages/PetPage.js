@@ -26,6 +26,7 @@ function PetPage() {
     if (!userData.user ||!(userData.user?.isDoctor || userData.user.id === id)) return <Navigate to="/" />
     return (
         <div>
+            <Link to=".." relative="path">Owner:{petData.owner_id?.lastName} {petData.owner_id?.firstName}</Link>
             <h1>{petData.name}</h1>
             <div>{getAge(petData.birthday)} y.o.</div>
             <div>{Math.floor(petData.weight/1000)} kg</div>
