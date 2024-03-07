@@ -8,7 +8,6 @@ function ManipulationPage() {
   const userData = useSelector(state=>state.user);
   const [manipulationData,setManipulationData] = useState({});
   const {id,manipulationId} = useParams();
-  console.log(manipulationId)
 
   useEffect(()=>{
     axios.get(`http://localhost:5000/manipulation/${manipulationId}`,{withCredentials:true}).then(
