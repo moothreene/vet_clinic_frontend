@@ -4,9 +4,13 @@ import { Navigate, useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios';
 
 function EditManipulation() {
+    const dateToday = new Date();
+    const dateText =dateToday.getFullYear()+"-"
+                +("0" + (dateToday.getMonth() + 1)).slice(-2) + "-" 
+                +("0" + dateToday.getDate()).slice(-2);
     const {manipulationId} = useParams();
     const {petId} = useParams();
-    const [date,setDate] = useState(new Date());
+    const [date,setDate] = useState({dateText});
     const [weight,setWeight] = useState(0);
     const [temp,setTemp] = useState(0);
     const [purpose,setPurpose] = useState("");
