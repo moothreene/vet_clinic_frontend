@@ -1,0 +1,8 @@
+.pet_link a{
+    text-decoration: none;
+    color:black;
+}
+
+.pet_link a:hover{
+    color:blue
+}
