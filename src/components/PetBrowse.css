@@ -3,6 +3,12 @@
     color:black;
 }
 
-.pet_link a:hover{
+.pet_link:hover a{
     color:blue
+}
+
+.pet_link td{
+    padding-left: 1em;
+    padding-right: 1em;
+    text-align: left;
 }
