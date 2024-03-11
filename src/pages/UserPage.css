@@ -1,0 +1,63 @@
+.userPage_container{
+    display: flex;
+    height: 100vh;
+}
+
+.owner_container{
+    display: flex;
+    color:white;
+    font-size: 1.2em;
+    background-color: rgb(61, 148, 255);
+    width: 40%;
+    padding: 1.2em;
+}
+
+.owner_container a{
+    margin-top: .2em;
+    height: fit-content;
+}
+.owner_container a img{
+    width: 1em;
+}
+
+.owner_table{
+    height: fit-content;
+    width: 80%;
+}
+
+td.owner_info{
+    font-weight: 400;
+}
+
+td.owner_prefix{
+    font-weight: 200;
+}
+
+.pets_container{
+    padding: 1em;
+    width: 60%;
+    display: flex;
+}
+
+.pets_table{
+    width: 80%;
+    height: fit-content;
+    border-collapse: collapse;
+}
+
+.link_add{
+    margin: 1em 0;
+}
+
+.pets_container a img{
+    width: 1.2em;
+}
+
+.pets_header{
+    font-size: 1.2em;
+}
+
+.pets_header th{
+    padding: .7em;
+    text-align: left;
+}
