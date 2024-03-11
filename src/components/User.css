@@ -3,6 +3,12 @@
     color:black;
 }
 
-.user_link a:hover{
+.user_link:hover a{
     color:blue
+}
+
+.user_link td{
+    text-align: left;
+    padding-left: 1em;
+    padding-right: 1em;
 }

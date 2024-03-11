@@ -4,9 +4,10 @@ import './User.css'
 
 function User({_id, email, firstName, lastName}) {
   return (
-    <div className='user_link'>
-      <Link to={`/users/${_id}`}>{lastName} {firstName}</Link>
-    </div>
+    <tr className='user_link'>
+        <td><Link to={`/users/${_id}`}>{lastName}</Link></td>
+        <td><Link to={`/users/${_id}`}>{firstName}</Link></td>
+    </tr>
   )
 }
 
