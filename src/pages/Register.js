@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { registerUser } from '../redux';
 import { useSelector, useDispatch } from 'react-redux';
 import { Navigate } from 'react-router-dom';
+import "./Register.css"
 
 function Register() {
     const dispatch = useDispatch();
@@ -11,70 +12,83 @@ function Register() {
     const [firstName, setFirstName] = useState("");
     const [lastName,setLastName] = useState("");
     const [phoneNumber,setPhoneNumber] = useState("");
+    const [address,setAddress] = useState({city:"",street:"",misc:""});
     const [password,setPassword] = useState("");
     const [redirect, setRedirect] = useState(false)
 
     function HandleSubmit(event){
         event.preventDefault();
-        dispatch(registerUser(email,firstName,lastName,phoneNumber,password))
+        dispatch(registerUser(email,firstName,lastName,phoneNumber,address,password))
         setRedirect(true);
         
     }
     if (!userData.user || (userData.loading === false && userData.error===null && redirect===true)){return <Navigate to={"/"} />}
     return (
-        <>
+        <div className='register'>
         <form className='register' onSubmit={HandleSubmit}>
-            <label>Email</label>
-            <br />
-            <input  type="email"
-                    required 
-                    placeholder='Email' 
-                    className='email'
-                    value={email}
-                    onChange={e=>(setEmail(e.target.value))}/>
-            <br />
-            <label>First Name</label>
-            <br />
-            <input  type="text" 
+                <input  type="text" 
                     required 
                     placeholder='First Name' 
                     className='firstName'
                     value={firstName}
                     onChange={e=>setFirstName(e.target.value)} />
-            <br />
-            <label>Last Name</label>
-            <br />
-            <input  type="text" 
+                <input  type="text" 
                     required 
                     placeholder='Last Name' 
                     className='lastName'
                     value={lastName}
                     onChange={e=>setLastName(e.target.value)} />
-            <br />
-            <label>Phone Number</label>
-            <br />
-            <input  type="text" 
+                <input  type="text" 
                     required 
                     placeholder='Phone Number' 
                     className='phoneNumber'
                     value={phoneNumber}
                     onChange={e=>setPhoneNumber(e.target.value)} />
-            <br />
-            <label>Password</label>
-            <br />
-            <input  type="password" 
+                <input  type="email"
+                    required 
+                    placeholder='Email' 
+                    className='email'
+                    value={email}
+                    onChange={e=>(setEmail(e.target.value))}/>
+                <input  type="text" 
+                    required 
+                    placeholder='City' 
+                    className='city'
+                    value={address.city}
+                    onChange={e=>setAddress(address=>({
+                        ...address,
+                        city:e.target.value
+                    }))} />
+                <input  type="text" 
+                    required 
+                    placeholder='Street' 
+                    className='street'
+                    value={address.street}
+                    onChange={e=>setAddress(address=>({
+                        ...address,
+                        street:e.target.value
+                    }))} />
+                <input  type="text" 
+                    required 
+                    placeholder='Address misc' 
+                    className='misc'
+                    value={address.misc}
+                    onChange={e=>setAddress(address=>({
+                        ...address,
+                        misc:e.target.value
+                    }))} />
+                <input  type="password" 
                     required 
                     placeholder='Password' 
                     className='password'
                     value={password}
                     onChange={e=>setPassword(e.target.value)} />
-            <br />
-            <button type="submit" className='register'>Register</button>
-        </form>
-        {userData.error!==null &&(
-            <div>{userData.error}</div>
+                <button type="submit" className='register'>Register</button>
+                {userData.error!==null &&(
+                        <div className='register_error'>{userData.error}</div>
         )}
-        </>
+        </form>
+        </div>
     )
 }
 
