@@ -8,8 +8,9 @@
 }
 
 input.search{
+    width: 70%;
+    margin: auto;
     box-sizing: border-box;
-    width: 30%;
     font-size: 1.2em;
     border: 3px solid rgb(60, 57, 255);
     border-radius: none;
@@ -22,8 +23,36 @@ input.search:focus{
     border-radius: 7px;
 }
 
-.clients_container{
-    margin-top: 1em;
+.results_container{
+    width:90%;
+    margin: 1em auto;
     height: 5em;
+    font-size: 1.2em;
+}
+
+.results_container table{
+    width: fit-content;
+    border-collapse: collapse;
+    margin: auto;
+}
+
+.results_container table tr:nth-child(even) {
+    background-color: #D6EEEE;
+  }
+
+.browse_container{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.browse_container .radio_buttons{
+    display: flex;
+    width: 80%;
+    margin: auto;
+    justify-content: space-around;
+}
+
+.radio_clients label, .radio_pets label{
     font-size: 1.2em;
 }

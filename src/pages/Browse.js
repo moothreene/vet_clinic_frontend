@@ -68,44 +68,52 @@ function Browse() {
   if (!userData.user.isDoctor) return <Navigate to={userData.user.id} />
   return (
     <div className='browse'>
-      <input
-        className='search'
-        value={searchQuery}
-        placeholder='Search for users...'
-        onChange={event=>{setSearchQuery(event.target.value)}}    
-      />
-      <fieldset>
+      <div className='browse_container'>
         <input
-          type="radio"
-          className='pets'
-          id='pets'
-          checked={searchSelection==="pets"}
-          value={searchSelection}
-          onClick={()=>setSearchSelection("pets")}
+          className='search'
+          value={searchQuery}
+          placeholder='Search...'
+          onChange={event=>{setSearchQuery(event.target.value)}}    
         />
-        <label for="pets">Pets</label>
-
-        <input 
-          type="radio"
-          className='clients'
-          id='clients'
-          checked={searchSelection==="clients"}
-          value={searchSelection}
-          onClick={()=>setSearchSelection("clients")}
-        />
-        <label for="clients">Clients</label>
-      </fieldset>
-      <div className='clients_container'>
-        {searchSelection==="clients" && (
-          filteredUsers.map(user=>{
-            return(<User key={user._id} {...user} />)
-          })
-        )}
-        {searchSelection==="pets" && (
-          filteredPets.map(pet=>{
-            return(<PetBrowse key={pet._id} {...pet} />)
-          })
-        )}
+        <div className='radio_buttons'>
+          <div className='radio_pets'>
+            <input
+              type="radio"
+              className='pets'
+              id='pets'
+              checked={searchSelection==="pets"}
+              value={searchSelection}
+              onClick={()=>setSearchSelection("pets")}
+            />
+            <label for="pets">Pets</label>
+          </div>
+          <div className='radio_clients'>
+            <input 
+              type="radio"
+              className='clients'
+              id='clients'
+              checked={searchSelection==="clients"}
+              value={searchSelection}
+              onClick={()=>setSearchSelection("clients")}
+            />
+            <label for="clients">Clients</label>
+          </div>
+        </div>
+        <div className='results_container'>
+          <table className='results_table'>
+            {searchSelection==="clients" && (
+              filteredUsers.map(user=>{
+                return(<User key={user._id} {...user} />)
+              })
+            )}
+            
+            {searchSelection==="pets" && (
+              filteredPets.map(pet=>{
+                return(<PetBrowse key={pet._id} {...pet} />)
+              })
+            )}
+          </table>
+        </div>
       </div>
     </div>
     
