@@ -80,10 +80,11 @@ export const updateUserFailure = (error)=>{
     }
 }
 
-export const registerUser = (email,firstName,lastName,phoneNumber,password)=>{
+export const registerUser = (email,firstName,lastName,phoneNumber,address,password)=>{
     return (dispatch)=>{
         dispatch(registerUserRequest());
-        const data = {email,firstName,lastName,phoneNumber,password}
+        const {city,street,misc} = address;
+        const data = {email,firstName,lastName,phoneNumber,city,street,misc,password}
         axios.post("http://localhost:5000/register", data, {withCredentials:true})
         .then(response=>{
             dispatch(registerUserSuccess());
@@ -158,10 +159,11 @@ export const resetOwner = ()=>{
     }
 }
 
-export const updateUserInfo = (id,email,firstName,lastName,phoneNumber)=>{
+export const updateUserInfo = (id,email,firstName,lastName,phoneNumber,address)=>{
     return (dispatch)=>{
         dispatch(updateUserRequest());
-        const data = {email,firstName,lastName,phoneNumber}
+        const {city,street,misc} = address;
+        const data = {email,firstName,lastName,phoneNumber,city,street,misc}
         axios.put(`http://localhost:5000/update/${id}`, data, {withCredentials:true})
         .then(response=>{
             dispatch(updateUserSuccess());
