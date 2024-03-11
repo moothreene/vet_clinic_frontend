@@ -1,0 +1,27 @@
+.pet_preview{
+    font-size: 1.2em;
+}
+
+.pet_preview td{
+    text-align: left;
+}
+
+
+.pet_preview td a{
+    text-decoration: none;
+    color:black;
+    display: block;
+    padding: .7em;
+}
+
+td.emoji a{
+    font-size: 1.5em;
+}
+
+.pet_preview:hover{
+    background-color:rgb(10, 116, 255);
+}
+
+.pet_preview:hover a{
+    color:white;
+}

@@ -1,8 +1,8 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
+import './Pet.css';
 
 function Pet({_id,name,sex,weight,birthday,species,breed}) {
-  const getAge = birthDate => Math.floor((new Date() - new Date(birthDate).getTime()) / 3.15576e+10);
   function getAge(birthDate){
     const today = new Date();
     const birthDayDate = new Date(birthDate);
@@ -21,17 +21,26 @@ function Pet({_id,name,sex,weight,birthday,species,breed}) {
         result += ((result?" ":"")+monthDiff + " m. ")
     }
     return result;
+}
+  function getEmoji(animal){
+    switch(animal){
+      case "Cat": return "🐱";
+      case "Dog": return "🐶";
+      case "Rodent": return"🐰";
+      case "Bird": return "🐦";
+      case "Exotic": return "🐲";
+      default: return "🐾";
+    }
+  }
   return (
-    <>
-        <br />
-        <Link to={_id}>{name}</Link>
-        <div>{species}</div>
-        <div>{sex}</div>
-        <div>{breed}</div>
-        <div>{getAge(birthday)} y.o.</div>
-        <div>{weight/1000} kg</div>
-    </>
+    <tr className='pet_preview'>
+        <td><Link to={_id}>{name}</Link></td>
+        <td className='emoji'><Link to={_id}>{getEmoji(species)}</Link> </td>
+        <td><Link to={_id}>{sex}</Link> </td>
+        <td><Link to={_id}>{breed}</Link> </td>
         <td><Link to={_id}>{getAge(birthday)}o.</Link> </td>
+        <td><Link to={_id}>{weight/1000} kg</Link> </td>
+    </tr>
   )
 }
 
