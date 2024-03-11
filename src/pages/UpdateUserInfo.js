@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react';
 import axios from 'axios';
-import { registerUser, updateUserInfo } from '../redux';
+import { updateUserInfo } from '../redux';
 import { useSelector, useDispatch } from 'react-redux';
-import { Navigate, useParams } from 'react-router-dom';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
+import './UpdateUserInfo.css';
 
 function UpdateUserInfo() {
     const {id} = useParams()
@@ -13,7 +14,9 @@ function UpdateUserInfo() {
     const [firstName, setFirstName] = useState("");
     const [lastName,setLastName] = useState("");
     const [phoneNumber,setPhoneNumber] = useState("");
+    const [address,setAddress] = useState({city:"",street:"",misc:""});
     const [redirect, setRedirect] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(()=>{
         if(userData.user){
@@ -23,62 +26,84 @@ function UpdateUserInfo() {
                     setFirstName(response.data?.userData?.firstName)
                     setLastName(response.data?.userData?.lastName)
                     setPhoneNumber(response.data?.userData?.phoneNumber)
+                    setAddress({
+                        city:response.data?.userData?.city,
+                        street:response.data?.userData?.street,
+                        misc:response.data?.userData?.addressMisc
+                    })
                 }
             )
         }
     },[]);
     function HandleSubmit(event){
         event.preventDefault();
-        dispatch(updateUserInfo(id,email,firstName,lastName,phoneNumber))
+        dispatch(updateUserInfo(id,email,firstName,lastName,phoneNumber,address))
         setRedirect(true);
         
     }
-    if (!userData.user || (userData.loading === false && userData.error===null && redirect===true)){return <Navigate to={"/"} />}
+    if (!userData.user || (userData.loading === false && userData.error===null && redirect===true)){
+        return navigate(-1)
+    }
     return (
-        <>
+        <div className='update'>
         <form className='update' onSubmit={HandleSubmit}>
-            <label>Email</label>
-            <br />
             <input  type="email"
                     required 
                     placeholder='Email' 
                     className='email'
                     value={email}
                     onChange={e=>(setEmail(e.target.value))}/>
-            <br />
-            <label>First Name</label>
-            <br />
             <input  type="text" 
                     required 
                     placeholder='First Name' 
                     className='firstName'
                     value={firstName}
                     onChange={e=>setFirstName(e.target.value)} />
-            <br />
-            <label>Last Name</label>
-            <br />
             <input  type="text" 
                     required 
                     placeholder='Last Name' 
                     className='lastName'
                     value={lastName}
                     onChange={e=>setLastName(e.target.value)} />
-            <br />
-            <label>Phone Number</label>
-            <br />
             <input  type="text" 
                     required 
                     placeholder='Phone Number' 
                     className='phoneNumber'
                     value={phoneNumber}
                     onChange={e=>setPhoneNumber(e.target.value)} />
-            <br />
-            <button type="submit" className='register'>Register</button>
-        </form>
-        {userData.error!==null &&(
-            <div>{userData.error}</div>
+            <input  type="text" 
+                    required 
+                    placeholder='City' 
+                    className='city'
+                    value={address.city}
+                    onChange={e=>setAddress(address=>({
+                        ...address,
+                        city:e.target.value
+                    }))} />
+            <input  type="text" 
+                    required 
+                    placeholder='Street' 
+                    className='street'
+                    value={address.street}
+                    onChange={e=>setAddress(address=>({
+                        ...address,
+                        street:e.target.value
+                    }))} />
+            <input  type="text" 
+                    required 
+                    placeholder='Address misc' 
+                    className='misc'
+                    value={address.misc}
+                    onChange={e=>setAddress(address=>({
+                        ...address,
+                        misc:e.target.value
+                    }))} />
+            <button type="submit" className='update'>Update</button>
+            {userData.error!==null &&(
+            <div className='update_error'>{JSON.stringify(userData.error)}</div>
         )}
-        </>
+        </form>
+        </div>
     )
 }
 

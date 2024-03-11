@@ -1,0 +1,48 @@
+div.update{
+    background-color: rgb(64, 147, 255);
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+form.update{
+    margin: auto;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+form.update input{
+    margin-bottom: .3em;
+    font-size: 1.2em;
+    border: 3px solid rgba(0, 0, 0, 0);
+    outline: none;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+}
+
+.update input:focus{
+    border: 3px solid rgb(19, 94, 255);
+    border-radius: 3px;
+}
+
+button.update{
+    background-color: rgb(0, 103, 237);
+    padding: 3px;
+    border: none;
+    font-size: 1.2em;
+    color:white
+}
+
+button.update:hover{
+    background-color: rgb(81, 200, 255);
+}
+
+div.update_error{
+    height: 2em;
+    font-size: 1.2em;
+    margin: auto;
+    text-align: center;
+    display: flex;
+}
