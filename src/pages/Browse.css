@@ -8,7 +8,7 @@
 }
 
 input.search{
-    width: 70%;
+    width: 60%;
     margin: auto;
     box-sizing: border-box;
     font-size: 1.2em;
@@ -37,18 +37,18 @@ input.search:focus{
 }
 
 .results_container table tr:nth-child(even) {
-    background-color: #D6EEEE;
+    background-color: rgb(182, 219, 255)
   }
 
 .browse_container{
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 60%;
 }
 
 .browse_container .radio_buttons{
     display: flex;
-    width: 80%;
+    width: 60%;
     margin: auto;
     justify-content: space-around;
 }
