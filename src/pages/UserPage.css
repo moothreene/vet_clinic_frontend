@@ -17,8 +17,9 @@
     height: fit-content;
 }
 
-.img_default, .img_hover{
-    width: 1em;
+.owner_container a img{
+    width: 1.2em;
+    height: 1.2em;
 }
 
 .img_hover{
