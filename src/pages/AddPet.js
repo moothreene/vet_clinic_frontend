@@ -104,6 +104,8 @@ function AddPet() {
                 />
               <button
                 type="submit" className='addpet'>Submit</button>
+              <button
+                type="button" onClick={()=>navigate(-1)} className='cancel'>Cancel</button>
               </form>
             )}
         </div>
