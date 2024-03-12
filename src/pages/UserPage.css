@@ -16,8 +16,22 @@
     margin-top: .2em;
     height: fit-content;
 }
-.owner_container a img{
+
+.img_default, .img_hover{
     width: 1em;
+}
+
+.img_hover{
+    display: none;
+}
+
+.owner_container a:hover{
+    .img_default{
+        display: none;
+    }
+    .img_hover{
+        display: block;
+    }
 }
 
 .owner_table{
@@ -47,6 +61,7 @@ td.owner_prefix{
 
 .link_add{
     margin: 1em 0;
+    height: fit-content;
 }
 
 .pets_container a img{
@@ -60,4 +75,13 @@ td.owner_prefix{
 .pets_header th{
     padding: .7em;
     text-align: left;
+}
+
+.pets_container a:hover{
+    .img_default{
+        display: none;
+    }
+    .img_hover{
+        display: block;
+    }
 }

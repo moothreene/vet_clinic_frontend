@@ -58,7 +58,10 @@ function UserPage() {
                 )}
                 {usersData.user?.isDoctor && (
                     <>
-                    <Link to={"update"} ><img src={require(`../images/edit_icon.png`)} alt="edit"/></Link>
+                    <Link className='edit_link' to={"update"} >
+                        <img className="img_default" src={require(`../images/edit.png`)} alt="edit"/>
+                        <img className="img_hover" src={require(`../images/edit_reverse.png`)} alt="edit"/>
+                    </Link>
                     </>
                 )}
             </div>
@@ -79,7 +82,10 @@ function UserPage() {
                     })}
                 </table>
                 {usersData.user?.isDoctor && (
-                    <Link className="link_add" to={"addpet"} ><img src={require(`../images/add.png`)} alt="edit"/></Link>
+                    <Link className="link_add" to={"addpet"}>
+                        <img className="img_default" src={require(`../images/add.png`)} alt="addpet"/>
+                        <img className="img_hover" src={require(`../images/add_reverse.png`)} alt="addpet"/>
+                    </Link>
                 )}
             </div>
         </div>
