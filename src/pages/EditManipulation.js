@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Editor from '../components/Editor'
 import { Navigate, useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios';
+import { useSelector } from 'react-redux';
 
 function EditManipulation() {
     
@@ -13,8 +14,10 @@ function EditManipulation() {
     const [purpose,setPurpose] = useState("");
     const [desc, setDesc] = useState("");
     const [recommendation,setRecommendation] = useState("");
+    const [petData,setPetData] = useState([]);
     const [redirect,setRedirect] = useState(false);
     const navigate = useNavigate();
+    const userData = useSelector(state=>state.user);
 
     useEffect(()=>{
         axios.get(`http://localhost:5000/manipulation/${manipulationId}`,{withCredentials:true}).then(
@@ -27,7 +30,16 @@ function EditManipulation() {
             if(response.data?.recommendation) setRecommendation(response.data.recommendation)
           }
         )
+
+        if (userData.user){
+            axios.get(`http://localhost:5000/pet/${petId}`,{withCredentials:true}).then(
+            response=>{
+                setPetData(response.data.petData);
+            }
+        )
+        }
       },[])
+
 
     async function HandleSubmit(event){
         event.preventDefault();
@@ -81,6 +93,28 @@ function EditManipulation() {
                     <input placeholder="Purpose" type="text" required value={purpose} onChange={e=>setPurpose(e.target.value)}></input>
                     <button type="submit">Edit</button>
                     <button onClick={HandleDelete}>Delete</button>
+                    <table className='pet_info_table'>
+                        <tr>
+                            <td className='pet_info_prefix'>Name:</td>
+                            <td className='pet_info_value'>{petData.name}</td>
+                        </tr>
+                        <tr>
+                            <td className='pet_info_prefix'>Age:</td>
+                            <td className='pet_info_value'>{getAge(petData.birthday)}o.</td>
+                        </tr>
+                        <tr>
+                            <td className='pet_info_prefix'>Sex:</td>
+                            <td className='pet_info_value'>{petData.sex}</td>
+                        </tr>
+                        <tr>
+                            <td className='pet_info_prefix'>Species:</td>
+                            <td className='pet_info_value'><div>{petData.species}</div></td>
+                        </tr>
+                        <tr>
+                            <td className='pet_info_prefix'>Breed:</td>
+                            <td className='pet_info_value'><div>{petData.breed}</div></td>
+                        </tr>
+                    </table>  
                 </div>
                 <div className='manipulation_long'>
                     <fieldset className='field desc'>
