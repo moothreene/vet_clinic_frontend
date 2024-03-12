@@ -19,14 +19,15 @@ const modules = {
     'link', 'image'
   ]; 
 
-function Editor({value, onChange}) {
+function Editor({value, onChange, className=""}) {
   return (
     <ReactQuill
-        theme="snow"
-        value={value}
-        modules={modules}
-        formats={formats}
-        onChange={onChange}/>
+      className={className}
+      theme="snow"
+      value={value}
+      modules={modules}
+      formats={formats}
+      onChange={onChange}/>
   )
 }
 
