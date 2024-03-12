@@ -9,6 +9,10 @@
 
 .user_link td{
     text-align: left;
+}
+
+.user_link td a{
+    display: flex;
     padding-left: 1em;
     padding-right: 1em;
 }
