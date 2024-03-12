@@ -1,0 +1,23 @@
+.manipulation_preview{
+    font-size: 1.2em;
+}
+
+.manipulation_preview td{
+    text-align: left;
+}
+
+
+.manipulation_preview td a{
+    text-decoration: none;
+    color:black;
+    display: block;
+    padding: .7em;
+}
+
+.manipulation_preview:hover{
+    background-color:rgb(10, 116, 255);
+}
+
+.manipulation_preview:hover a{
+    color:white;
+}
