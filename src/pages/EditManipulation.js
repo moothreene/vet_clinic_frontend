@@ -3,6 +3,7 @@ import Editor from '../components/Editor'
 import { Navigate, useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios';
 import { useSelector } from 'react-redux';
+import { getAge } from '../Utils';
 
 function EditManipulation() {
     

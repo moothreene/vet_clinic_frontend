@@ -4,6 +4,7 @@ import { Navigate, useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios';
 import './AddManipulation.css';
 import { useSelector } from 'react-redux';
+import { getAge } from '../Utils';
 
 function AddManipulation() {
     const {petId} = useParams();
