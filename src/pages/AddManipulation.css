@@ -1,0 +1,43 @@
+.hidden{
+    display: none;
+}
+
+button.disabled{
+    opacity: .7;
+    pointer-events: none;
+}
+
+.manipulation{
+    height: 100vh;
+    background-color: rgb(64, 147, 255);
+}
+
+.manipulationForm{
+    display: flex;
+    width: 90%;
+    margin: auto;
+}
+
+.manipulation_short{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.manipulation_long{
+    width: 70%;
+}
+
+.ql-editor{
+    min-height: 35em;
+    max-height: 35em;
+    overflow: scroll;
+}
+
+.field{
+    background-color: white;
+}
+
+.field legend{
+    background-color: white;
+}
