@@ -1,0 +1,79 @@
+.petPage_container{
+    display: flex;
+    height: 100vh;
+}
+
+.pet_info_container{
+    display: flex;
+    flex-direction: column;
+    color:white;
+    font-size: 1.2em;
+    background-color: rgb(61, 148, 255);
+    width: 40%;
+}
+
+.pet_info_table{
+    height: fit-content;
+    width: 80%;
+    padding: 1.2em;
+}
+
+.manipulations_container{
+    width: 60%;
+    display: flex;
+}
+
+td.pet_info_value{
+    font-weight: 400;
+}
+
+td.pet_info_prefix{
+    font-weight: 200;
+}
+
+.pet_info_container a{
+    box-sizing: border-box;
+    width: 100%;
+    text-decoration: none;
+    padding: 1em;
+    padding-left: 1.5em;
+    color:white
+}
+.pet_info_container a:hover{
+    background-color: rgb(81, 200, 255);
+}
+
+.manipulations_table{
+    padding-left: 2em;
+    width: 80%;
+    height: fit-content;
+    border-collapse: collapse;
+}
+
+.manipulations_header{
+    padding: 1em;
+    font-size: 1.2em;
+}
+
+.manipulations_header th{
+    padding: .7em;
+    text-align: left;
+}
+.manipulations_container a img{
+    width: 1.2em;
+}
+
+.manipulations_container a:hover{
+    .img_default{
+        display: none;
+    }
+    .img_hover{
+        display: block;
+    }
+}
+
+.pet_info_container .phoneNumber{
+    display: inline;
+    font-size: .9em;
+    font-weight: 100;
+}

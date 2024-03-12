@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, Navigate, json, useParams } from 'react-router-dom'
 import Manipulation from '../components/Manipulation';
 import { useSelector } from 'react-redux';
+import './PetPage.css';
 
 function PetPage() {
     const {id, petId} = useParams();
@@ -43,28 +44,66 @@ function PetPage() {
 
     if (!userData.user ||!(userData.user?.isDoctor || userData.user.id === id)) return <Navigate to="/" />
     return (
-        <div>
-            <Link to=".." relative="path">Owner:{petData.owner_id?.lastName} {petData.owner_id?.firstName}</Link>
-            <h1>{petData.name}</h1>
-            <div>{getAge(petData.birthday)}o.</div>
-            <div>{Math.floor(petData.weight/1000)} kg</div>
-            <div>{petData.sex}</div>
-            <div>{petData.species}</div>
-            <div>{petData.breed}</div>
-            <br />
-            <hr></hr>
-            {userData?.user?.isDoctor && (
-                <Link to="add">Add Manipulation</Link>
-            )}
-            <br />
-            {manipulations.map(manipulation=>{
-                const {_id, date, doctor, purpose} = manipulation;
-                const data = {_id, date, doctor, purpose}
-                return(
-                   <Manipulation {...data}></Manipulation>
-                )
-            })}
-        </div>
+        petData &&(
+            <div className='petPage_container'>
+                <div className='pet_info_container'>
+                    <Link to=".." relative="path">
+                        Owner: {petData.owner_id?.lastName}
+                        {" "}{petData.owner_id?.firstName}
+                        {" - "}<div className='phoneNumber'>{petData.owner_id?.phoneNumber}</div>
+                    </Link>
+                    <table className='pet_info_table'>
+                        <tr>
+                            <td className='pet_info_prefix'>Name:</td>
+                            <td className='pet_info_value'>{petData.name}</td>
+                        </tr>
+                        <tr>
+                            <td className='pet_info_prefix'>Age:</td>
+                            <td className='pet_info_value'>{getAge(petData.birthday)}o.</td>
+                        </tr>
+                        <tr>
+                            <td className='pet_info_prefix'>Weight:</td>
+                            <td className='pet_info_value'>{petData.weight/1000} kg</td>
+                        </tr>
+                        <tr>
+                            <td className='pet_info_prefix'>Sex:</td>
+                            <td className='pet_info_value'>{petData.sex}</td>
+                        </tr>
+                        <tr>
+                            <td className='pet_info_prefix'>Species:</td>
+                            <td className='pet_info_value'><div>{petData.species}</div></td>
+                        </tr>
+                        <tr>
+                            <td className='pet_info_prefix'>Breed:</td>
+                            <td className='pet_info_value'><div>{petData.breed}</div></td>
+                        </tr>
+                    </table>  
+                </div>
+                <div className='manipulations_container'>
+                    <table className='manipulations_table'>
+                    <tr className='manipulations_header'>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Purpose</th>
+                        <th>Doctor</th>
+                    </tr>
+                    {manipulations.map(manipulation=>{
+                        const {_id, date, doctor, purpose} = manipulation;
+                        const data = {_id, date, doctor, purpose}
+                        return(
+                        <Manipulation {...data}></Manipulation>
+                        )
+                    })}
+                    </table>
+                    {userData?.user?.isDoctor && (
+                        <Link className="link_add" to="add">
+                            <img className="img_default" src={require(`../images/add.png`)} alt="addman"/>
+                            <img className="img_hover" src={require(`../images/add_reverse.png`)} alt="addman"/>
+                        </Link>
+                    )}
+                </div>
+            </div>
+        )
     )
     }
 
