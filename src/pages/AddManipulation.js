@@ -59,13 +59,12 @@ function AddManipulation() {
                 +("0" + dateToday.getMinutes()).slice(-2);
         return dateText;
     }
-
     if (!userData.user?.isDoctor) return <Navigate to="/" />
     if(redirect) return navigate(-1)
     return (
         <div className='manipulation'>
             <form className="manipulationForm" onSubmit={HandleSubmit}>
-                <div className='manipulation_short'>
+                <div className='left'>
                     <input type="datetime-local" required value={date} onChange={e=>{
                         setDate(e.target.value)}}>
                     </input>
@@ -96,7 +95,7 @@ function AddManipulation() {
                         </tr>
                     </table>  
                 </div>
-                <div className='manipulation_long'>
+                <div className='right'>
                     <fieldset className='field desc'>
                         <legend>
                             <button type="button" className='desc select_button disabled' onClick={HandleInputSwitch}>Description</button>
