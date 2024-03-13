@@ -81,7 +81,7 @@ function EditManipulation() {
             selectButton.classList.toggle("disabled");
         }
     }
-
+    if (!userData.user?.isDoctor) return <Navigate to="/" />
     if(redirect) return navigate(-1);
     return (
         <div className='manipulation'>
