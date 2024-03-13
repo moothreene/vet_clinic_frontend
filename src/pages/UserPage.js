@@ -5,6 +5,7 @@ import { useParams, Navigate, Link} from 'react-router-dom';
 import { useDispatch, useSelector} from 'react-redux';
 import { updateOwner, resetOwner} from '../redux';
 import "./UserPage.css";
+import { serverUrl } from '../Utils';
 
 function UserPage() {
     const {id} = useParams();
@@ -15,7 +16,7 @@ function UserPage() {
     useEffect(()=>{
         dispatch(resetOwner())
         if(usersData.user){
-            axios.get(`http://localhost:5000/users/${id}`,{withCredentials:true}).then(
+            axios.get(`${serverUrl}/users/${id}`,{withCredentials:true}).then(
             response=>{
                 setPetData(response.data.petData)
                 dispatch(updateOwner(response.data?.userData))

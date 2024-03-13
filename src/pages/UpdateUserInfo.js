@@ -5,6 +5,7 @@ import { updateUserInfo } from '../redux';
 import { useSelector, useDispatch } from 'react-redux';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import './UpdateUserInfo.css';
+import { serverUrl } from '../Utils';
 
 function UpdateUserInfo() {
     const {id} = useParams()
@@ -20,7 +21,7 @@ function UpdateUserInfo() {
 
     useEffect(()=>{
         if(userData.user){
-            axios.get(`http://localhost:5000/users/${id}`,{withCredentials:true}).then(
+            axios.get(`${serverUrl}/users/${id}`,{withCredentials:true}).then(
                 response=>{
                     setEmail(response.data?.userData?.email)
                     setFirstName(response.data?.userData?.firstName)

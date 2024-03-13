@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useSelector,useDispatch } from 'react-redux';
 import { addPet, resetPet } from '../redux/pet/petActions';
 import './AddPet.css';
+import { serverUrl } from '../Utils';
 
 function AddPet() {
     const dispatch = useDispatch()
@@ -21,7 +22,7 @@ function AddPet() {
 
     useEffect(()=>{
       dispatch(resetPet());
-        axios.get("http://localhost:5000/admin",{withCredentials:true})
+        axios.get(`${serverUrl}/admin`,{withCredentials:true})
       .then(response=>{
         setRedirect(!response.data)
       })

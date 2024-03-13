@@ -16,7 +16,7 @@ export const getAge = (birthDate)=>{
         result += ((result?" ":"")+monthDiff + " m. ")
     }
     return result;
-}}
+}
 
 export const getDate =(dateValue)=>{
     let d = new Date(dateValue);
@@ -37,3 +37,4 @@ export const getDate =(dateValue)=>{
     }
   }
 
+export const serverUrl = "https://vetclinic-backend-e1bf5cd00200.herokuapp.com"

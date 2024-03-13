@@ -4,6 +4,7 @@ import { Navigate, useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { getAge } from '../Utils';
+import { serverUrl } from '../Utils';
 
 function EditManipulation() {
     
@@ -21,7 +22,7 @@ function EditManipulation() {
     const userData = useSelector(state=>state.user);
 
     useEffect(()=>{
-        axios.get(`http://localhost:5000/manipulation/${manipulationId}`,{withCredentials:true}).then(
+        axios.get(`${serverUrl}/manipulation/${manipulationId}`,{withCredentials:true}).then(
           response=>{
             if(response.data?.date) setDate(dateText(response.data.date))
             if(response.data?.weight) setWeight(response.data.weight)
@@ -33,7 +34,7 @@ function EditManipulation() {
         )
 
         if (userData.user){
-            axios.get(`http://localhost:5000/pet/${petId}`,{withCredentials:true}).then(
+            axios.get(`${serverUrl}/pet/${petId}`,{withCredentials:true}).then(
             response=>{
                 setPetData(response.data.petData);
             }
@@ -45,7 +46,7 @@ function EditManipulation() {
     async function HandleSubmit(event){
         event.preventDefault();
         const data = {manipulationId,date,petId, weight, temp, purpose, desc, recommendation}
-        axios.put("http://localhost:5000/editManipulation",data,{withCredentials:true}).then(
+        axios.put(`${serverUrl}/editManipulation`,data,{withCredentials:true}).then(
             response=>{
                 setRedirect(true);
             }
@@ -53,7 +54,7 @@ function EditManipulation() {
     }
 
     async function HandleDelete(){
-        axios.post("http://localhost:5000/deleteManipulation",{manipulationId},{withCredentials:true}).then(
+        axios.post(`${serverUrl}/deleteManipulation`,{manipulationId},{withCredentials:true}).then(
             response=>{
                 navigate(-2);
             }

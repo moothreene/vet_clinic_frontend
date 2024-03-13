@@ -1,5 +1,6 @@
 import * as CONSTANTS from "./userTypes";
 import axios from "axios";
+import { serverUrl } from "../../Utils";
 
 
 export const loginUserRequest = ()=>{
@@ -85,7 +86,7 @@ export const registerUser = (email,firstName,lastName,phoneNumber,address,passwo
         dispatch(registerUserRequest());
         const {city,street,misc} = address;
         const data = {email,firstName,lastName,phoneNumber,city,street,misc,password}
-        axios.post("http://localhost:5000/register", data, {withCredentials:true})
+        axios.post(`${serverUrl}/register`, data, {withCredentials:true})
         .then(response=>{
             dispatch(registerUserSuccess());
         })
@@ -99,9 +100,10 @@ export const registerUser = (email,firstName,lastName,phoneNumber,address,passwo
 export const logoutUser = ()=>{
     return(dispatch)=>{
         dispatch(logoutUserRequest())
-        axios.post("http://localhost:5000/logout","",{withCredentials:true})
+        axios.post(`${serverUrl}/logout`,"",{withCredentials:true})
         .then(response=>{
             dispatch(logoutUserSuccess())
+            dispatch(resetOwner())
         })
         .catch(error=>{
             const errorMsg=error.message
@@ -115,7 +117,7 @@ export const loginUser = (email,password)=>{
     return (dispatch)=>{
         dispatch(loginUserRequest());
         const data = {email,password}
-        axios.post("http://localhost:5000/login", data,{withCredentials:true})
+        axios.post(`${serverUrl}/login`, data,{withCredentials:true})
         .then(response=>{
             const user = response.data;
             dispatch(loginUserSuccess(user));
@@ -135,7 +137,7 @@ export const clearError = ()=>{
 
 export const updateUser = ()=>{
     return (dispatch)=>{
-        axios.get("http://localhost:5000/profile",{withCredentials:true})
+        axios.get(`${serverUrl}/profile`,{withCredentials:true})
         .then(response=>{
             if(response.data){
                 dispatch(loginUserSuccess(response.data));
@@ -164,7 +166,7 @@ export const updateUserInfo = (id,email,firstName,lastName,phoneNumber,address)=
         dispatch(updateUserRequest());
         const {city,street,misc} = address;
         const data = {email,firstName,lastName,phoneNumber,city,street,misc}
-        axios.put(`http://localhost:5000/update/${id}`, data, {withCredentials:true})
+        axios.put(`${serverUrl}/update/${id}`, data, {withCredentials:true})
         .then(response=>{
             dispatch(updateUserSuccess());
         })

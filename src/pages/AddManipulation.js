@@ -5,6 +5,7 @@ import axios from 'axios';
 import './AddManipulation.css';
 import { useSelector } from 'react-redux';
 import { getAge } from '../Utils';
+import { serverUrl } from '../Utils';
 
 function AddManipulation() {
     const {petId} = useParams();
@@ -18,10 +19,9 @@ function AddManipulation() {
     const [redirect,setRedirect] = useState(false);
     const navigate = useNavigate();
     const userData = useSelector(state=>state.user);
-
     useEffect(()=>{
         if (userData.user){
-            axios.get(`http://localhost:5000/pet/${petId}`,{withCredentials:true}).then(
+            axios.get(`${serverUrl}/pet/${petId}`,{withCredentials:true}).then(
             response=>{
                 setPetData(response.data.petData);
             }
@@ -32,7 +32,7 @@ function AddManipulation() {
     async function HandleSubmit(event){
         event.preventDefault();
         const data = {date,petId, weight, temp, purpose, desc, recommendation}
-        axios.post("http://localhost:5000/addManipulation",data,{withCredentials:true}).then(
+        axios.post(`${serverUrl}/addManipulation`,data,{withCredentials:true}).then(
             response=>{
                 setRedirect(true);
             }

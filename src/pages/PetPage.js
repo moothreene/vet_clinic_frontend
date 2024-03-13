@@ -4,6 +4,7 @@ import { Link, Navigate, json, useParams } from 'react-router-dom'
 import Manipulation from '../components/Manipulation';
 import { useSelector } from 'react-redux';
 import './PetPage.css';
+import { serverUrl } from '../Utils';
 
 function PetPage() {
     const {id, petId} = useParams();
@@ -13,7 +14,7 @@ function PetPage() {
 
     useEffect(()=>{
         if (userData.user){
-            axios.get(`http://localhost:5000/pet/${petId}`,{withCredentials:true}).then(
+            axios.get(`${serverUrl}/pet/${petId}`,{withCredentials:true}).then(
             response=>{
                 setPetData(response.data.petData)
                 setManipulations(response.data.manipulations)

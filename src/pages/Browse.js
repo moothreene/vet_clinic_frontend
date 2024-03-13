@@ -5,6 +5,7 @@ import User from '../components/User';
 import { Navigate } from 'react-router-dom';
 import "./Browse.css"
 import PetBrowse from '../components/PetBrowse';
+import { serverUrl } from '../Utils';
 
 function Browse() {
   const[pets,setPets] = useState([]);
@@ -17,11 +18,11 @@ function Browse() {
 
   useEffect(()=>{
     if(userData.user){
-      axios.get("http://localhost:5000/pets",{withCredentials:true})
+      axios.get(`${serverUrl}/pets`,{withCredentials:true})
       .then(response=>{
         setPets(response.data);
       })
-      axios.get("http://localhost:5000/users",{withCredentials:true})
+      axios.get(`${serverUrl}/users`,{withCredentials:true})
       .then(response=>{
         setUsers(response.data);
       })

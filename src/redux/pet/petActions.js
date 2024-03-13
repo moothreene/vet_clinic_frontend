@@ -1,5 +1,6 @@
 import * as CONSTANTS from "./petTypes"
 import axios from "axios"
+import { serverUrl } from "../../Utils"
 
 export const addPetRequest = ()=>{
     return{
@@ -31,7 +32,7 @@ export const addPet = (id,name,species,breed,sex,birthday,weight)=>{
     return (dispatch)=>{
         dispatch(addPetRequest());
         const petData = {id,name,species,breed,sex,birthday,weight}
-        axios.post("http://localhost:5000/addpet",petData,{withCredentials:true}).then(
+        axios.post(`${serverUrl}/addpet`,petData,{withCredentials:true}).then(
             response=>{
                 dispatch(addPetSuccess(response.data))
             }
