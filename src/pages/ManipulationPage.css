@@ -1,0 +1,44 @@
+.manipulationPage{
+    box-sizing: border-box;
+    display: flex;
+    height: 100vh;
+    padding: 0 5%;
+    background-color: rgb(64, 147, 255);
+}
+
+.manipulationPage .left{
+    color:white;
+    font-size: 1.2em;
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+}
+
+.manipulationPage .right{
+    width: 60%;
+}
+
+.manipulation_info_prefix{
+    font-weight: 100;
+}
+
+.back_to_pet, .manipulation_edit{
+    box-sizing: border-box;
+    width: fit-content;
+    padding: .5em;
+    text-decoration: none;
+    color:white;
+}
+
+.back_to_pet:hover, .manipulation_edit:hover{
+    background-color: rgb(81, 200, 255);
+}
+
+.manipulation_info_table{
+    margin-top: 1em;
+}
+
+.manipulation_data{
+    height: 35em;
+    overflow: scroll;
+}
