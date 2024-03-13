@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom'
 import { Navigate } from 'react-router-dom';
+import { getDate,getAge } from '../Utils';
 
 function ManipulationPage() {
   const userData = useSelector(state=>state.user);

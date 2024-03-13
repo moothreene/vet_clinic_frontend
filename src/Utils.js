@@ -16,4 +16,24 @@ export const getAge = (birthDate)=>{
         result += ((result?" ":"")+monthDiff + " m. ")
     }
     return result;
-}
+}}
+
+export const getDate =(dateValue)=>{
+    let d = new Date(dateValue);
+    let month = '' + (d.getMonth() + 1);
+    let day = '' + d.getDate();
+    let year = d.getFullYear();
+    let hour = d.getHours();
+    let minute = d.getMinutes();
+
+    if (month.length < 2) 
+        month = '0' + month;
+    if (day.length < 2) 
+        day = '0' + day;
+
+    return {
+      "date":[day, month, year].join('-'),
+      "time":[hour, minute].join(':')
+    }
+  }
+
