@@ -68,6 +68,14 @@ function UserPage() {
             </div>
             <div className='pets_container'>
                 <table className='pets_table'>
+                <colgroup>
+                    <col span="1" />
+                    <col span="1" />
+                    <col span="1" />
+                    <col className='breed' span="1" />
+                    <col span="1" />
+                    <col span="1" />
+                </colgroup>
                 <tr className='pets_header'>
                     <th>Name</th>
                     <th>Species</th>

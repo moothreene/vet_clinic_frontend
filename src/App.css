@@ -19,3 +19,13 @@ button{
   -ms-user-select: none;
   user-select: none;
 }
+
+:root{
+  --font-size-default:1.2em;
+}
+
+@media screen and (max-width: 1000px) {
+  :root{
+    --font-size-default:.8em;
+  }
+}

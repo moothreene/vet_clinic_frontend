@@ -38,3 +38,4 @@ export const getDate =(dateValue)=>{
   }
 
 export const serverUrl = "https://vetclinic-app-backend-06de29dba66a.herokuapp.com"
+/*export const serverUrl = "http://localhost:5000"*/

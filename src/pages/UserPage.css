@@ -4,6 +4,7 @@
 }
 
 .owner_container{
+    box-sizing: border-box;
     display: flex;
     color:white;
     font-size: var(--font-size-default);
@@ -20,6 +21,10 @@
 .owner_container a img{
     width: 1.2em;
     height: 1.2em;
+}
+
+.img_default{
+    display: block;
 }
 
 .img_hover{
@@ -49,17 +54,22 @@ td.owner_prefix{
 }
 
 .pets_container{
+    box-sizing: border-box;
     padding: 1em;
     width: 60%;
     display: flex;
 }
 
 .pets_table{
-    width: 80%;
+    table-layout:fixed;
+    width: 100%;
+    box-sizing: border-box;
     height: fit-content;
     border-collapse: collapse;
 }
-
+.pets_table th td{
+    width: fit-content;
+}
 .link_add{
     margin: 1em 0;
     height: fit-content;
@@ -86,3 +96,34 @@ td.owner_prefix{
         display: block;
     }
 }
+
+col.breed{
+    width: 25%;
+}
+
+@media screen and (max-width: 1000px) {
+    .pets_header th{
+        padding: .2em;
+    }
+    .pets_container a img{
+        width: 0.8em;
+    }
+    .link_add{
+        margin: .4em 0;
+    }
+}
+
+
+@media screen and (max-width: 700px) {
+    .userPage_container{
+        flex-direction: column;
+    }
+    .owner_container{
+        width: 100%;
+    }
+    .pets_container{
+        width: 100%;
+        max-width: 100vw;
+        padding: .5em;
+    }
+  }

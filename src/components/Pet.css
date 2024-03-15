@@ -4,8 +4,10 @@
 
 .pet_preview td{
     text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
-
 
 .pet_preview td a{
     text-decoration: none;
@@ -24,4 +26,11 @@ td.emoji a{
 
 .pet_preview:hover a{
     color:white;
+}
+
+
+@media screen and (max-width: 1000px) {
+    .pet_preview td a{
+        padding: .2em
+    }
 }

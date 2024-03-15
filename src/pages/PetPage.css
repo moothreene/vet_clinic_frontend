@@ -21,6 +21,7 @@
 .manipulations_container{
     width: 60%;
     display: flex;
+    box-sizing: border-box;
 }
 
 td.pet_info_value{
@@ -44,8 +45,10 @@ td.pet_info_prefix{
 }
 
 .manipulations_table{
+    table-layout:fixed;
+    width: 100%;
+    box-sizing: border-box;
     padding-left: 2em;
-    width: 80%;
     height: fit-content;
     border-collapse: collapse;
 }
@@ -77,3 +80,30 @@ td.pet_info_prefix{
     font-size: .9em;
     font-weight: 100;
 }
+
+
+@media screen and (max-width: 1000px) {
+    .manipulations_header th{
+        padding: .2em;
+    }
+    .manipulations_container a img{
+        width: 0.8em;
+    }
+    .link_add{
+        margin: .4em 0;
+    }
+}
+
+
+@media screen and (max-width: 700px) {
+    .petPage_container{
+        flex-direction: column;
+    }
+    .pet_info_container{
+        width: 100%;
+    }
+    .manipulations_container{
+        width: 100%;
+        padding: .5em;
+    }
+  }

@@ -56,3 +56,11 @@ input.search:focus{
 
 .radio_clients label, .radio_pets label{
     font-size: var(--font-size-default);
+}
+
+@media screen and (max-width: 900px) {
+    .browse_container{
+        width: 90%;
+    }
+    
+  }
