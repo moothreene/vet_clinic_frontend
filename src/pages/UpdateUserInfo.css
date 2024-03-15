@@ -15,7 +15,7 @@ form.update{
 
 form.update input{
     margin-bottom: .3em;
-    font-size: 1.2em;
+    font-size: var(--font-size-default);
     border: 3px solid rgba(0, 0, 0, 0);
     outline: none;
     -webkit-transition: 0.2s;
@@ -31,7 +31,7 @@ button.update{
     background-color: rgb(0, 103, 237);
     padding: 3px;
     border: none;
-    font-size: 1.2em;
+    font-size: var(--font-size-default);
     color:white
 }
 
@@ -41,7 +41,7 @@ button.update:hover{
 
 div.update_error{
     height: 2em;
-    font-size: 1.2em;
+    font-size: var(--font-size-default);
     margin: auto;
     text-align: center;
     display: flex;

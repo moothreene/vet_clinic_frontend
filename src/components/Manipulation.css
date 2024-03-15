@@ -1,5 +1,5 @@
 .manipulation_preview{
-    font-size: 1.2em;
+    font-size: var(--font-size-default);
 }
 
 .manipulation_preview td{

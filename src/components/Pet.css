@@ -1,5 +1,5 @@
 .pet_preview{
-    font-size: 1.2em;
+    font-size: var(--font-size-default);
 }
 
 .pet_preview td{

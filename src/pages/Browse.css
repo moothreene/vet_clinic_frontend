@@ -3,6 +3,7 @@
     flex-direction: column;
     height: 50vh;
     width: 100%;
+
     justify-content: center;
     align-items: center;
 }
@@ -11,7 +12,7 @@ input.search{
     width: 60%;
     margin: auto;
     box-sizing: border-box;
-    font-size: 1.2em;
+    font-size: var(--font-size-default);
     border: 3px solid rgb(60, 57, 255);
     border-radius: none;
     outline: none;
@@ -27,7 +28,7 @@ input.search:focus{
     width:90%;
     margin: 1em auto;
     height: 5em;
-    font-size: 1.2em;
+    font-size: var(--font-size-default);
 }
 
 .results_container table{
@@ -54,5 +55,4 @@ input.search:focus{
 }
 
 .radio_clients label, .radio_pets label{
-    font-size: 1.2em;
-}
+    font-size: var(--font-size-default);
