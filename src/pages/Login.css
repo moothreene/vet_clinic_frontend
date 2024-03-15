@@ -47,3 +47,9 @@ div.login_error{
     text-align: center;
     display: flex;
 }
+
+@media screen and (max-width: 700px) {
+    form.login{
+        width: 60%;
+    }
+}

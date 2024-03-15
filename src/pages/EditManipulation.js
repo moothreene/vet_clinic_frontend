@@ -86,7 +86,7 @@ function EditManipulation() {
     return (
         <div className='manipulation'>
             <form className="manipulationForm" onSubmit={HandleSubmit}>
-                <div className='manipulation_short'>
+                <div className='left'>
                     <input type="datetime-local" required value={date} onChange={e=>{
                         setDate(e.target.value)}}>
                     </input>
@@ -102,7 +102,7 @@ function EditManipulation() {
                         </tr>
                         <tr>
                             <td className='pet_info_prefix'>Age:</td>
-                            <td className='pet_info_value'>{getAge(petData.birthday)}o.</td>
+                            <td className='pet_info_value'>{getAge(petData.birthday)}</td>
                         </tr>
                         <tr>
                             <td className='pet_info_prefix'>Sex:</td>
@@ -118,7 +118,7 @@ function EditManipulation() {
                         </tr>
                     </table>  
                 </div>
-                <div className='manipulation_long'>
+                <div className='right'>
                     <fieldset className='field desc'>
                         <legend>
                             <button type="button" className='desc select_button disabled' onClick={HandleInputSwitch}>Description</button>
