@@ -20,7 +20,7 @@ function Login() {
     },[])
     
     return (
-        userData.user?(<Navigate to={"/"}/>):(
+        userData.user?(<Navigate to="/users"/>):(
         <div className='login'>
         <form className='login' onSubmit={HandleSubmit}>
             <input  type="email"
