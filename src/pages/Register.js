@@ -25,7 +25,7 @@ function Register() {
     if (!userData.user || (userData.loading === false && userData.error===null && redirect===true)){return <Navigate to={"/"} />}
     return (
         <div className='register'>
-        <form className='register' onSubmit={HandleSubmit}>
+        <form autoComplete="off" className='register' onSubmit={HandleSubmit}>
                 <input  type="text" 
                     required 
                     placeholder='First Name' 

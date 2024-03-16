@@ -37,5 +37,25 @@ export const getDate =(dateValue)=>{
     }
   }
 
+const purposes = [
+"no-purpose",
+"regular check",
+"emergency"
+];
+
+export const sortedPurposes = purposes.sort();
+
+export const getDataList = (id)=>{
+    return(
+        <datalist id={id}>
+            {sortedPurposes.map((sortedPurpose)=>{
+                return(
+                    <option value={sortedPurpose}></option>
+                )
+            })}
+        </datalist>
+    )
+}
+
 export const serverUrl = "https://vetclinic-app-backend-06de29dba66a.herokuapp.com"
 /*export const serverUrl = "http://localhost:5000"*/

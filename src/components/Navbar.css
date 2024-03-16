@@ -5,6 +5,7 @@
     list-style-type: none;
     background-color: rgb(10, 116, 255);
     color: white;
+    box-sizing: border-box;
 }
 
 .navbar li{
@@ -18,7 +19,7 @@
 
 
 .navbar li .link{
-    font-size: 1em;
+    font-size: var(--font-size-bigger);
     display: block;
     text-align: center;
     padding: 1em;

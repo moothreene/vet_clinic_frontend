@@ -4,8 +4,7 @@ import { Navigate, useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios';
 import './AddManipulation.css';
 import { useSelector } from 'react-redux';
-import { getAge } from '../Utils';
-import { serverUrl } from '../Utils';
+import { getAge,serverUrl,getDataList} from '../Utils';
 
 function AddManipulation() {
     const {petId} = useParams();
@@ -70,7 +69,15 @@ function AddManipulation() {
                     </input>
                     <input placeholder="Weight" type="number" value={weight} onChange={e=>setWeight(e.target.value)}></input>
                     <input placeholder="Temperature" type="number" value={temp} onChange={e=>setTemp(e.target.value)}></input>
-                    <input placeholder="Purpose" type="text" required value={purpose} onChange={e=>setPurpose(e.target.value)}></input>
+                    <input
+                        placeholder="Purpose"
+                        type="text"
+                        list="purposes"
+                        required
+                        value={purpose}
+                        onChange={e=>setPurpose(e.target.value)}>
+                    </input>
+                    {getDataList("purposes")}
                     <button type="submit">Submit</button>
                     <table className='pet_info_table'>
                         <tr>

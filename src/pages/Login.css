@@ -16,7 +16,7 @@ form.login{
 
 .login input{
     margin-bottom: .3em;
-    font-size: var(--font-size-default);
+    font-size: var(--font-size-bigger);
     border: 3px solid rgba(0, 0, 0, 0);
     outline: none;
     -webkit-transition: 0.2s;
@@ -32,7 +32,7 @@ button.login{
     background-color: rgb(0, 103, 237);
     padding: 3px;
     border: none;
-    font-size: var(--font-size-default);
+    font-size: var(--font-size-bigger);
     color:white
 }
 
@@ -50,6 +50,6 @@ div.login_error{
 
 @media screen and (max-width: 700px) {
     form.login{
-        width: 60%;
+        width: 70%;
     }
 }

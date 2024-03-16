@@ -25,7 +25,7 @@
 
 .manipulationForm .left input{
     margin: .5em 0;
-    font-size: var(--font-size-default);
+    font-size: var(--font-size-bigger);
     border: 3px solid rgba(0, 0, 0, 0);
     outline: none;
     -webkit-transition: 0.2s;
@@ -56,10 +56,26 @@
     width: 70%;
 }
 
+.ql-container{
+    font-size: var(--font-size-bigger);
+}
+
+.ql-snow.ql-toolbar button{
+    height: 1.6em;
+}
+
 .ql-editor{
-    font-size: var(--font-size-default);
     height: min(25em, 50vh);
     overflow: scroll;
+}
+
+.ql-header.ql-picker{
+    font-size: var(--font-size-bigger);
+    width: fit-content;
+}
+
+.ql-snow .ql-header.ql-picker{
+    width: 7em;
 }
 
 .field{
@@ -79,7 +95,7 @@
     padding: 3px;
     border: 1px solid rgb(0, 103, 237);
     color:white;
-    font-size: var(--font-size-default);
+    font-size: var(--font-size-bigger);
 }
 
 button.disabled{
@@ -90,8 +106,23 @@ button.disabled{
 }
 
 .manipulationForm .left table{
-    font-size: var(--font-size-default);
+    font-size: var(--font-size-bigger);
 }
+@media screen and (max-width: 1500px){
+    .manipulationForm .left input{
+        margin: .3em 0;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .manipulationForm .left input{
+        margin: .1em 0;
+    }
+    .manipulationForm{
+        width: 95%;
+    }
+}
+
 
 @media screen and (max-width: 700px) {
     .manipulationForm{

@@ -46,3 +46,15 @@ div.update_error{
     text-align: center;
     display: flex;
 }
+
+@media screen and (max-width: 1000px) {
+    form.update{
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    form.update{
+        width: 70%;
+    }
+}

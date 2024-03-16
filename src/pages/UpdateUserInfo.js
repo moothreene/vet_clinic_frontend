@@ -47,7 +47,7 @@ function UpdateUserInfo() {
     }
     return (
         <div className='update'>
-        <form className='update' onSubmit={HandleSubmit}>
+        <form autoComplete='off' className='update' onSubmit={HandleSubmit}>
             <input  type="email"
                     required 
                     placeholder='Email' 
