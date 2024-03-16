@@ -19,11 +19,12 @@ export const getAge = (birthDate)=>{
 }
 
 export const getDate =(dateValue)=>{
+    console.log(dateValue)
     let d = new Date(dateValue);
     let month = '' + (d.getMonth() + 1);
     let day = '' + d.getDate();
     let year = d.getFullYear();
-    let hour = d.getHours();
+    let hour = d.getUTCHours();
     let minute = d.getMinutes();
 
     if (month.length < 2) 
