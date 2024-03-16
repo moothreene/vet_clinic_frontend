@@ -22,10 +22,35 @@ button{
 
 :root{
   --font-size-default:1.2em;
+  --font-size-bigger:1.4em;
+}
+@media screen and (max-width: 1200px) {
+  :root{
+    --font-size-default:1em;
+    --font-size-bigger:1.2em;
+  }
 }
 
 @media screen and (max-width: 1000px) {
   :root{
     --font-size-default:.8em;
+    --font-size-bigger:1em;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  :root{
+    --font-size-default:.7em;
+    --font-size-bigger:.9em;
+  }
+  html body{
+    overflow-y: visible
+  }
+}
+
+@media screen and (max-width: 400px) {
+  :root{
+    --font-size-default:.6em;
+    --font-size-bigger:.6em;
   }
 }
