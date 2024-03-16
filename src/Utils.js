@@ -38,9 +38,13 @@ export const getDate =(dateValue)=>{
   }
 
 const purposes = [
-"no-purpose",
-"regular check",
-"emergency"
+"Initial visit",
+"Return visit",
+"Manipulations",
+"Surgery",
+"Tests",
+"Ultrasound",
+"Vaccination"
 ];
 
 export const sortedPurposes = purposes.sort();
