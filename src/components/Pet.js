@@ -22,20 +22,50 @@ function Pet({_id,name,sex,weight,birthday,species,breed}) {
     }
     return result;
 }
-  function getEmoji(animal){
+  function getPicture(animal){
     switch(animal){
-      case "Cat": return "🐱";
-      case "Dog": return "🐶";
-      case "Rodent": return"🐰";
-      case "Bird": return "🐦";
-      case "Exotic": return "🐲";
-      default: return "🐾";
+      case "Cat": return (
+        <>
+          <img className="img_pet" src={require(`../images/cat.png`)} alt="addpet"/>
+          <img className="img_pet_reverse" src={require(`../images/cat_reverse.png`)} alt="addpet"/>
+        </>
+      )
+      case "Dog": return (
+        <>
+          <img className="img_pet" src={require(`../images/dog.png`)} alt="addpet"/>
+          <img className="img_pet_reverse" src={require(`../images/dog_reverse.png`)} alt="addpet"/>
+        </>
+      );
+      case "Rodent": return (
+        <>
+          <img className="img_pet" src={require(`../images/hamster.png`)} alt="addpet"/>
+          <img className="img_pet_reverse" src={require(`../images/hamster_reverse.png`)} alt="addpet"/>
+        </>
+      );
+      case "Bird": return (
+        <>
+          <img className="img_pet" src={require(`../images/parrot.png`)} alt="addpet"/>
+          <img className="img_pet_reverse" src={require(`../images/parrot_reverse.png`)} alt="addpet"/>
+        </>
+      );
+      case "Exotic": return (
+        <>
+          <img className="img_pet" src={require(`../images/exotic.png`)} alt="addpet"/>
+          <img className="img_pet_reverse" src={require(`../images/exotic_reverse.png`)} alt="addpet"/>
+        </>
+      );
+      default: return (
+        <>
+          <img className="img_pet" src={require(`../images/pet_default.png`)} alt="addpet"/>
+          <img className="img_pet_reverse" src={require(`../images/pet_default_reverse.png`)} alt="addpet"/>
+        </>
+      );;
     }
   }
   return (
     <tr className='pet_preview'>
         <td><Link to={_id}>{name}</Link></td>
-        <td className='emoji'><Link to={_id}>{getEmoji(species)}</Link> </td>
+        <td className='emoji'><Link to={_id}>{getPicture(species)}</Link> </td>
         <td><Link to={_id}>{sex}</Link> </td>
         <td><Link to={_id}>{breed}</Link> </td>
         <td className='age'><Link to={_id}>{getAge(birthday)}o.</Link> </td>

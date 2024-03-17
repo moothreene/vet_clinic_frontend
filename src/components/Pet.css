@@ -20,12 +20,29 @@ td.emoji a{
     font-size: 1.5em;
 }
 
+.img_pet{
+    display: block;
+}
+
+.img_pet_reverse{
+    display: none;
+}
+
 .pet_preview:hover{
     background-color:rgb(10, 116, 255);
 }
 
 .pet_preview:hover a{
     color:white;
+}
+
+.pet_preview:hover{
+    .img_pet{
+        display: none;
+    }
+    .img_pet_reverse{
+        display: block;
+    }
 }
 
 
