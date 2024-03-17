@@ -3,7 +3,7 @@ import './Home.css';
 function Home() {
   return (
     <div className='home'>
-        Home!
+        Vet Clinic DB Manager
     </div>
   )
 }
