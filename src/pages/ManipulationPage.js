@@ -36,7 +36,6 @@ function ManipulationPage() {
   return (
     <div className='manipulationPage'>
       <div className='left'>
-        <Link className="back_to_pet" to=".." relative="path">Go back</Link>
         {userData.user?.isDoctor && (
             <Link className="manipulation_edit" to="edit">Edit</Link>
           )}
@@ -67,7 +66,7 @@ function ManipulationPage() {
           </tr>
           <tr>
             <td className='manipulation_info_prefix'>Weight:</td>
-            <td className='manipulation_info_value'>{manipulationData?.pet_id?.weight/1000} kg.</td>
+            <td className='manipulation_info_value'>{manipulationData?.pet_id?.weight} kg.</td>
           </tr>
           <tr>
             <td className='manipulation_info_prefix'>Temperature:</td>

@@ -64,7 +64,7 @@ function PetPage() {
                         </tr>
                         <tr>
                             <td className='pet_info_prefix'>Weight:</td>
-                            <td className='pet_info_value'>{petData.weight/1000} kg</td>
+                            <td className='pet_info_value'>{petData.weight} kg</td>
                         </tr>
                         <tr>
                             <td className='pet_info_prefix'>Sex:</td>

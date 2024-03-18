@@ -69,7 +69,7 @@ function Pet({_id,name,sex,weight,birthday,species,breed}) {
         <td><Link to={_id}>{sex}</Link> </td>
         <td><Link to={_id}>{breed}</Link> </td>
         <td className='age'><Link to={_id}>{getAge(birthday)}o.</Link> </td>
-        <td className='weight'><Link to={_id}>{weight/1000} kg</Link> </td>
+        <td className='weight'><Link to={_id}>{weight} kg</Link> </td>
     </tr>
   )
 }
