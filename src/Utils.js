@@ -18,7 +18,7 @@ export const getAge = (birthDate)=>{
     return result;
 }
 
-export const getDate =(dateValue)=>{
+export const getDate =(dateValue, edit=false)=>{
     console.log(dateValue)
     let d = new Date(dateValue);
     let month = '' + (d.getMonth() + 1);
@@ -31,11 +31,16 @@ export const getDate =(dateValue)=>{
         month = '0' + month;
     if (day.length < 2) 
         day = '0' + day;
-
     if (minute < 10)
         minute = '0' +minute;
     if (hour < 10)
         hour = '0' + hour;  
+    if(edit){
+        return {
+            "date":[year, month, day,].join('-'),
+            "time":[hour, minute].join(':')
+        }
+    }
     return {
       "date":[day, month, year].join('-'),
       "time":[hour, minute].join(':')
