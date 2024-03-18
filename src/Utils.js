@@ -32,6 +32,10 @@ export const getDate =(dateValue)=>{
     if (day.length < 2) 
         day = '0' + day;
 
+    if (minute < 10)
+        minute = '0' +minute;
+    if (hour < 10)
+        hour = '0' + hour;  
     return {
       "date":[day, month, year].join('-'),
       "time":[hour, minute].join(':')
