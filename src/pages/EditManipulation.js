@@ -3,7 +3,7 @@ import Editor from '../components/Editor'
 import { Navigate, useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios';
 import { useSelector } from 'react-redux';
-import { getAge } from '../Utils';
+import { getAge, getDate } from '../Utils';
 import { serverUrl } from '../Utils';
 
 function EditManipulation() {
@@ -24,7 +24,7 @@ function EditManipulation() {
     useEffect(()=>{
         axios.get(`${serverUrl}/manipulation/${manipulationId}`,{withCredentials:true}).then(
           response=>{
-            if(response.data?.date) setDate(dateText(response.data.date))
+            if(response.data?.date) setDate(getDate(response.data.date,true)["date"]+" "+getDate(response.data.date,true)["time"])
             if(response.data?.weight) setWeight(response.data.weight)
             if(response.data?.temp) setTemp(response.data.temp)
             if(response.data?.purpose) setPurpose(response.data.purpose)
