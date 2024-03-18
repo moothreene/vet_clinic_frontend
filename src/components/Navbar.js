@@ -33,6 +33,8 @@ function Navbar() {
         </li>
       ):
         (<>
+                <img className="img_default" src={require(`../images/return.png`)} alt="return"/>
+                <img className="img_hover" src={require(`../images/return_reverse.png`)} alt="return"/>
           {userData.user.isDoctor &&
             <li className="register">
               <Link className="link register" to="/register">Register</Link>
@@ -44,6 +46,8 @@ function Navbar() {
           <li>
             <div className="link logout" onClick={logout}>Logout</div>
           </li>
+              <img className="img_default" src={require(`../images/search.png`)} alt="return"/>
+                <img className="img_hover" src={require(`../images/search_reverse.png`)} alt="return"/>
         </>)}       
     </ul>
   )

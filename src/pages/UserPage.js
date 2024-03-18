@@ -92,8 +92,8 @@ function UserPage() {
                 </table>
                 {usersData.user?.isDoctor && (
                     <Link className="link_add" to={"addpet"}>
-                        <img className="img_default" src={require(`../images/add.png`)} alt="addpet"/>
-                        <img className="img_hover" src={require(`../images/add_reverse.png`)} alt="addpet"/>
+                        <img className="img_default" src={require(`../images/pet_add.png`)} alt="addpet"/>
+                        <img className="img_hover" src={require(`../images/pet_add_reverse.png`)} alt="addpet"/>
                     </Link>
                 )}
             </div>
