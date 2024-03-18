@@ -2,21 +2,24 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link, Navigate, json, useParams } from 'react-router-dom'
 import Manipulation from '../components/Manipulation';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import './PetPage.css';
-import { serverUrl } from '../Utils';
+import { getDate, serverUrl } from '../Utils';
+import { updateOwner } from '../redux';
 
 function PetPage() {
     const {id, petId} = useParams();
     const [petData,setPetData] = useState([]);
     const [manipulations, setManipulations] = useState([]);
     const userData = useSelector(state=>state.user);
+    const dispatch = useDispatch();
 
     useEffect(()=>{
         if (userData.user){
             axios.get(`${serverUrl}/pet/${petId}`,{withCredentials:true}).then(
             response=>{
                 setPetData(response.data.petData)
+                dispatch(updateOwner(response.data.petData.owner_id))
                 setManipulations(response.data.manipulations)
             }
         )
@@ -63,6 +66,10 @@ function PetPage() {
                             <td className='pet_info_value'>{getAge(petData.birthday)}o.</td>
                         </tr>
                         <tr>
+                            <td className='pet_info_prefix'>Birthday:</td>
+                            <td className='pet_info_value'>{getDate(petData.birthday)["date"]}</td>
+                        </tr>
+                        <tr>
                             <td className='pet_info_prefix'>Weight:</td>
                             <td className='pet_info_value'>{petData.weight} kg</td>
                         </tr>
@@ -82,19 +89,19 @@ function PetPage() {
                 </div>
                 <div className='manipulations_container'>
                     <table className='manipulations_table'>
-                    <tr className='manipulations_header'>
-                        <th>Date</th>
-                        <th>Time</th>
-                        <th>Purpose</th>
-                        <th>Doctor</th>
-                    </tr>
-                    {manipulations.map(manipulation=>{
-                        const {_id, date, doctor, purpose} = manipulation;
-                        const data = {_id, date, doctor, purpose}
-                        return(
-                        <Manipulation {...data}></Manipulation>
-                        )
-                    })}
+                        <tr className='manipulations_header'>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Purpose</th>
+                            <th>Doctor</th>
+                        </tr>
+                        {manipulations.map(manipulation=>{
+                            const {_id, date, doctor, purpose} = manipulation;
+                            const data = {_id, date, doctor, purpose}
+                            return(
+                            <Manipulation {...data}></Manipulation>
+                            )
+                        })}
                     </table>
                     {userData?.user?.isDoctor && (
                         <Link className="link_add" to="add">
