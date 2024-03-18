@@ -1,3 +1,4 @@
-Database manager for Veterinary Clinic
+**Database manager for Veterinary Clinic**
 
-https://vetclinic-app-frontend-23790577e284.herokuapp.com/
+deployed here:
+  https://vetclinic-app-frontend-23790577e284.herokuapp.com/
