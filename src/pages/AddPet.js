@@ -91,8 +91,12 @@ function AddPet() {
                   type="date"
                   required
                   placeholder='Birthday'
+                  max="9999-12-31"
                   value={birthday}
-                  onChange={(e)=>setBirthday(e.target.value)}
+                  onChange={(e)=>{
+                    setBirthday(e.target.value)
+                  }}
+                  
                 />
                 <br />
                 <input
