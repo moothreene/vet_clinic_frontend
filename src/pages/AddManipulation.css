@@ -56,8 +56,14 @@
     width: 70%;
 }
 
+.quill{
+    width: 100%;
+    box-sizing: border-box;
+}
+
 .ql-container{
     font-size: var(--font-size-bigger);
+    width: 100%;
 }
 
 .ql-snow.ql-toolbar button{
@@ -66,12 +72,10 @@
 
 .ql-editor{
     height: min(25em, 50vh);
-    overflow: scroll;
 }
 
 .ql-header.ql-picker{
     font-size: var(--font-size-bigger);
-    width: fit-content;
 }
 
 .ql-snow .ql-header.ql-picker{
@@ -79,8 +83,12 @@
 }
 
 .field{
+    min-inline-size: 0%;
+    width: 100%;
+    box-sizing: border-box;
     background-color: white;
 }
+
 
 .field legend{
     display: flex;
