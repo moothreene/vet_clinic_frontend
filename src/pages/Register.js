@@ -70,7 +70,7 @@ function Register() {
                     }))} />
                 <input  type="text" 
                     required 
-                    placeholder='Address misc' 
+                    placeholder='Home/apt' 
                     className='misc'
                     value={address.misc}
                     onChange={e=>setAddress(address=>({
