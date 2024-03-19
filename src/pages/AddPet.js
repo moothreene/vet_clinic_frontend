@@ -102,6 +102,7 @@ function AddPet() {
                 <input
                   className='weight'
                   type="number"
+                  step="any"
                   required
                   placeholder='Weight'
                   value={weight}

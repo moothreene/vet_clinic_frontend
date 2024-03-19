@@ -90,8 +90,8 @@ function EditManipulation() {
                     <input type="datetime-local" required value={date} onChange={e=>{
                         setDate(e.target.value)}}>
                     </input>
-                    <input placeholder="Weight" type="number" value={weight} onChange={e=>setWeight(e.target.value)}></input>
-                    <input placeholder="Temperature" type="number" value={temp} onChange={e=>setTemp(e.target.value)}></input>
+                    <input placeholder="Weight" step="any" type="number" value={weight} onChange={e=>setWeight(e.target.value)}></input>
+                    <input placeholder="Temperature" step="any" type="number" value={temp} onChange={e=>setTemp(e.target.value)}></input>
                     <input placeholder="Purpose" type="text" required value={purpose} onChange={e=>setPurpose(e.target.value)}></input>
                     <button type="submit">Edit</button>
                     <button onClick={HandleDelete}>Delete</button>
