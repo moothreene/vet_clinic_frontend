@@ -11,7 +11,6 @@ function Navbar() {
   const dispatch = useDispatch();
   const userData = useSelector(state=>state.user);
   const [location,setLocation] = useState(window.location.href);
-  const [redirect,setRedirect] = useState(false);
   const navigate = useNavigate();
 
   useEffect(()=>{
@@ -20,12 +19,10 @@ function Navbar() {
   },[])
 
   useEffect(()=>{
-    setRedirect(false);
     setLocation(window.location.href)
   })
 
   function logout(){
-    setRedirect(true);
     dispatch(logoutUser());
   }
 

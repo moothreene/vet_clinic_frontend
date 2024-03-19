@@ -47,6 +47,7 @@ li.go_back, li.search_link{
 
 .navbar img{
     width: 1.3em;
+    pointer-events: none;
 }
 
 .navbar li.go_back:hover{
