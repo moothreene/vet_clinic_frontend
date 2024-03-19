@@ -44,13 +44,13 @@ function Navbar() {
           )}
           {userData.user.isDoctor &&
             <li className="register">
-              <Link className="link register" to="/register">Register</Link>
+              <Link className="link register" to="/register">Add user</Link>
             </li>
           }
           <li>
             <div className="link logout" onClick={logout}>Logout</div>
           </li>
-          <li><span>{userData.user.email}</span></li>
+          <li className='username'><span>{userData.user.email}</span></li>
           <li className='search_link'>
             <Link className="link users" to="/users">
               <img className="img_default" src={require(`../images/search.png`)} alt="return"/>

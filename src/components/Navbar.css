@@ -12,7 +12,7 @@
 .navbar li{
     display: list-item;
     float: right;
-    height: max-content;
+    height: 4.5em;
 }
 
 .navbar .register, .navbar .go_back{
@@ -20,11 +20,11 @@
 }
 
 
-.navbar li .link, .navbar li span, .navbar li div{
+.navbar li >*{
     font-size: var(--font-size-bigger);
     display: block;
     text-align: center;
-    padding: .9em;
+    padding: 1em;
     text-decoration: none;
     color: white;
     cursor: pointer;
@@ -34,9 +34,14 @@
     padding: 1em 1.5em
 }
 
-.navbar li .link:hover, .navbar li.go_back:hover{
+.navbar li.username{
+    pointer-events: none;
+}
+
+.navbar li:hover{
     background-color: rgb(81, 200, 255);
 }
+
 
 li.go_back, li.search_link{
     display: flex;
@@ -47,7 +52,6 @@ li.go_back, li.search_link{
 
 .navbar img{
     width: 1.3em;
-    pointer-events: none;
 }
 
 .navbar li.go_back:hover{
@@ -64,5 +68,18 @@ li.go_back, li.search_link{
     }
     .img_hover{
         display: block;
+    }
+}
+
+
+@media screen and (max-width: 1000px) {
+    .navbar li{
+        height: 3.2em;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .navbar li{
+        height: 2em;
     }
 }
