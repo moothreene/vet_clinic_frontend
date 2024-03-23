@@ -30,8 +30,8 @@ function Browse() {
   },[]);
 
   useEffect(()=>{
-    setFilteredPets(pets.slice(-5));
-    setFilteredUsers(users.slice(-5));
+    if(pets.length>0) setFilteredPets(pets.slice(-5));
+    if(users.length>0) setFilteredUsers(users.slice(-5));
   },[pets,users])
 
   function search(term,target){
