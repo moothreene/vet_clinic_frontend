@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { Link, Navigate, json, useParams } from 'react-router-dom'
+import { Link, Navigate, useParams } from 'react-router-dom'
 import Manipulation from '../components/Manipulation';
 import { useDispatch, useSelector } from 'react-redux';
 import './PetPage.css';
