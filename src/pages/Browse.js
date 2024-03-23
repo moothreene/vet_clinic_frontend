@@ -78,6 +78,7 @@ function Browse() {
   if (!userData.user) return <Navigate to="/" />
   if (!userData.user.isDoctor) return <Navigate to={userData.user.id} />
   return (
+    (pets && users) && (
     <div className='browse'>
       <div className='browse_container'>
         <input
@@ -127,6 +128,7 @@ function Browse() {
         </div>
       </div>
     </div>
+    )
   )
 }
 
