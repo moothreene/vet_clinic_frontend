@@ -85,7 +85,7 @@ export const registerUser = (email,firstName,lastName,phoneNumber,address,passwo
     return (dispatch)=>{
         dispatch(registerUserRequest());
         const {city,street,misc} = address;
-        const data = {email,firstName,lastName,phoneNumber,city,street,misc,password}
+        const data = {email:email.toLowerCase(),firstName,lastName,phoneNumber,city,street,misc,password}
         axios.post(`${serverUrl}/register`, data, {withCredentials:true})
         .then(response=>{
             dispatch(registerUserSuccess());
@@ -116,7 +116,7 @@ export const logoutUser = ()=>{
 export const loginUser = (email,password)=>{
     return (dispatch)=>{
         dispatch(loginUserRequest());
-        const data = {email,password}
+        const data = {email:email.toLowerCase(),password}
         axios.post(`${serverUrl}/login`, data,{withCredentials:true})
         .then(response=>{
             const user = response.data;
