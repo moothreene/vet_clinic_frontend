@@ -19,7 +19,6 @@ export const getAge = (birthDate)=>{
 }
 
 export const getDate =(dateValue, edit=false)=>{
-    console.log(dateValue)
     let d = new Date(dateValue);
     let month = '' + (d.getMonth() + 1);
     let day = '' + d.getDate();
