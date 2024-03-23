@@ -67,6 +67,7 @@ function Browse() {
 
   useEffect(() => {
     const timeOutId = setTimeout(() => {
+      if(pets.length < 1 || users.length < 1) return
       setFilteredPets(search(searchQuery,"pets"))
       setFilteredUsers(search(searchQuery,"clients"))
     }, 300);
