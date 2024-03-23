@@ -21,16 +21,18 @@ function Browse() {
       axios.get(`${serverUrl}/pets`,{withCredentials:true})
       .then(response=>{
         setPets(response.data);
-        setFilteredPets(response.data.slice(-5).reverse())
       })
       axios.get(`${serverUrl}/users`,{withCredentials:true})
       .then(response=>{
         setUsers(response.data);
-        setFilteredUsers(response.data.slice(-5).reverse())
       })
-      
     }
   },[]);
+
+  useEffect(()=>{
+    setFilteredPets(pets.slice(-5));
+    setFilteredUsers(users.slice(-5));
+  },[pets,users])
 
   function search(term,target){
     if(term !==""){
@@ -42,10 +44,10 @@ function Browse() {
       }
     }else{
       if(target==="pets"){
-        return pets.slice(-5).reverse();
+        return pets.slice(-5);
       }
       if(target==="clients"){
-        return users.slice(-5).reverse();
+        return users.slice(-5);
       }
     }
   }
@@ -125,7 +127,6 @@ function Browse() {
         </div>
       </div>
     </div>
-    
   )
 }
 
