@@ -10,28 +10,31 @@
 }
 
 .navbar li{
+    position: relative;
     display: list-item;
     float: right;
     height: 4.5em;
+    max-width: 30%;
 }
 
 .navbar .register, .navbar .go_back{
     float: left;
 }
 
+.navbar li.username span{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
 
 .navbar li >*{
     font-size: var(--font-size-bigger);
     display: block;
     text-align: center;
-    padding: 1em;
+    padding: 1em .7em;
     text-decoration: none;
     color: white;
     cursor: pointer;
-}
-
-.navbar li .login{
-    padding: 1em 1.5em
 }
 
 .navbar li.username{
