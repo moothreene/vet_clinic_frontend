@@ -23,11 +23,13 @@ button{
 :root{
   --font-size-default:1.2em;
   --font-size-bigger:1.4em;
+  --font-size-large:2.5em;
 }
 @media screen and (max-width: 1200px) {
   :root{
     --font-size-default:1em;
     --font-size-bigger:1.2em;
+    --font-size-large:2em;
   }
 }
 
@@ -35,6 +37,7 @@ button{
   :root{
     --font-size-default:.8em;
     --font-size-bigger:1em;
+    --font-size-large:1.7em;
   }
 }
 
@@ -42,6 +45,7 @@ button{
   :root{
     --font-size-default:.7em;
     --font-size-bigger:.9em;
+    --font-size-large:1.5em;
   }
   html body{
     overflow-y: visible
