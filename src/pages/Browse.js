@@ -21,11 +21,14 @@ function Browse() {
       axios.get(`${serverUrl}/pets`,{withCredentials:true})
       .then(response=>{
         setPets(response.data);
+        setFilteredPets(response.data.slice(-5).reverse())
       })
       axios.get(`${serverUrl}/users`,{withCredentials:true})
       .then(response=>{
         setUsers(response.data);
+        setFilteredUsers(response.data.slice(-5).reverse())
       })
+      
     }
   },[]);
 
@@ -38,7 +41,12 @@ function Browse() {
         return users.filter(usersData=>userDataContains(usersData,term));
       }
     }else{
-      return [];
+      if(target==="pets"){
+        return pets.slice(-5).reverse();
+      }
+      if(target==="clients"){
+        return users.slice(-5).reverse();
+      }
     }
   }
 
